@@ -89,12 +89,34 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .certification-row {
-                display: none;
+                flex-direction: column;
             }
 
-            .certification-card {
-                display: block;
+            .certification-image {
+                width: 100%;
+                height: auto;
             }
+
+            .certification-content {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .certification-row:nth-child(even) {
+                flex-direction: column;
+            }
+        }
+
+        /* Add flex container styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+            margin-bottom: 30px;
         }
     </style>
 </head>
