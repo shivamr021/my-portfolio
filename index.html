@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Home - Shivam Rathod</title>
+
+    <style>
+        /* Home page specific styles */
+        .intro-section {
+            min-height: 85vh;
+            padding: 2rem 0;
+        }
+
+        .profile-image {
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(37, 117, 252, 0.5);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02) rotate(2deg);
+            box-shadow: 0 0 40px rgba(37, 117, 252, 0.8);
+        }
+
+        .main-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ffcc70, #ff7eb3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-title {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .hero-section-p {
+            font-size: 2.5rem;
+            font-weight: 500;
+        }
+
+        .wave {
+            animation: wave 2.5s infinite;
+            display: inline-block;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #ff7eb3;
+            transform: translateY(-3px);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn {
+            background: linear-gradient(45deg, #ffcc70, #ff7eb3);
+            color: #1a1a1a;
+        }
+
+        .secondary-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ff7eb3;
+            color: white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .intro-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .sub-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-section-p {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Add flex container styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container-fluid {
+            flex: 1;
+            margin-bottom: 30px; /* Standard gap before footer */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/fool.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Shivam Rathod
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link" href="index.html">Home</a>
+                    <a class="nav-item nav-link" href="about.html">About</a>
+                    <a class="nav-item nav-link" href="skills.html">Skills</a>
+                    <a class="nav-item nav-link" href="projects.html">Projects</a>
+                    <a class="nav-item nav-link" href="certifications.html">Certifications</a>
+                    <a class="nav-item nav-link" href="experience.html">Experience</a>
+                    <a class="nav-item nav-link" href="contact.html">Contact</a>
+                    <a class="nav-item nav-link" href="assignments.html">Assignments</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-5">
+        <div class="intro-section d-flex align-items-center">
+            <div class="intro-image col-md-6">
+                <img src="assets/images/profile.jpg" alt="Shivam Rathod" class="img-fluid rounded-circle shadow-lg profile-image">
+            </div> 
+            <div class="intro-text col-md-6 text-start text-light">
+                <h1 class="main-title">Hello There! <span class="wave">👋</span></h1>
+                <h2 class="sub-title">I'm Shivam Rathod,</h2>
+                <p class="hero-section-p lead">I'm <span id="text"></span><span class="typed-cursor" aria-hidden="true">|</span></p>
+                <div class="social-links mt-4">
+                    <a href="https://github.com/shivamr021" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/shivamrathod021/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:shivamrathod145@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="cta-buttons mt-5">
+                    <a href="about.html" class="cta-btn primary-btn">About Me</a>
+                    <a href="projects.html" class="cta-btn secondary-btn">View Projects</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 Shivam Rathod | All Rights Reserved |
+        <a href="contact.html">Contact Me</a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <script>
+        var typed = new Typed('#text', {
+            strings: [
+                'a Python Developer',
+                'a Django Developer',
+                'an AI/ML Enthusiast',
+                'a Problem Solver',
+                'a Content Writer'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 1000,
+            loop: true,
+            smartBackspace: true
+        }); 
+    </script>
+</body>
+</html>

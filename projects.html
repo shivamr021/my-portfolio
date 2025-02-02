@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>My Projects</title>
+
+    <style>
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            background: rgba(20, 20, 40, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 20px;
+            position: relative;
+        }
+
+        .project-card h3 {
+            color: #ffcc70;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: #e0e0e0;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            min-height: 80px;
+        }
+
+        /* GitHub Button */
+        .github-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(45deg, #ffcc70, #ff7eb3);
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .github-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        /* Tech Stack Tags */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Add flex container styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+            margin-bottom: 30px; /* Standard gap before footer */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/fool.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Shivam Rathod
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link" href="index.html">Home</a>
+                    <a class="nav-item nav-link" href="about.html">About</a>
+                    <a class="nav-item nav-link" href="skills.html">Skills</a>
+                    <a class="nav-item nav-link" href="projects.html">Projects</a>
+                    <a class="nav-item nav-link" href="certifications.html">Certifications</a>
+                    <a class="nav-item nav-link" href="experience.html">Experience</a>
+                    <a class="nav-item nav-link" href="contact.html">Contact</a>
+                    <a class="nav-item nav-link" href="assignments.html">Assignments</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">My Projects</h1>
+        </div>
+
+        <div class="projects-grid">
+            <!-- IBM SkillsBuild Data Analytics Project -->
+            <div class="project-card">
+                <img src="assets/projects/ibm-data.png" alt="IBM Data Analytics">
+                <div class="project-content">
+                    <h3>Data Analytics Project</h3>
+                    <div class="tech-stack">
+
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Visualization</span>
+                    </div>
+                    <p>A comprehensive data analysis project from the IBM SkillsBuild program, focusing on analyzing car dataset using Python for data-driven insights and visualizations.</p>
+                    <a href="https://github.com/shivamr021/ibm-skillsbuild-data-project" class="github-btn" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+
+            <!-- ToDo List Project -->
+            <div class="project-card">
+                <img src="assets/projects/todo_list.png" alt="ToDo List">
+                <div class="project-content">
+                    <h3>ToDo List</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">File Handling</span>
+                        <span class="tech-tag">CLI</span>
+                    </div>
+                    <p>A Python ToDo List app for managing tasks with features like add, remove, view, save, load, and append.</p>
+                    <a href="https://github.com/shivamr021/ToDo-List" class="github-btn" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+
+            <!-- Django Calculator Project -->
+            <div class="project-card">
+                <img src="assets/projects/django-calculator.png" alt="Django Calculator">
+                <div class="project-content">
+                    <h3>Django Calculator</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                    <p>A web-based calculator application built using Django. It provides a user-friendly interface for performing basic arithmetic operations.</p>
+                    <a href="https://github.com/shivamr021/django-calculator" class="github-btn" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+
+            <!-- BAMS Management System -->
+            <div class="project-card">
+                <img src="assets/projects/bams.png" alt="BAMS Management System">
+                <div class="project-content">
+                    <h3>Bank Account Management System</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OOP</span>
+                        <span class="tech-tag">File I/O</span>
+                    </div>
+                    <p>A complete Banking and Account Management System (BAMS) built using Python for tracking accounts, transactions, and user details securely.</p>
+                    <a href="https://github.com/shivamr021/bank-account-management-system" class="github-btn" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 Shivam Rathod | All Rights Reserved |
+        <a href="contact.html">Contact Me</a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
