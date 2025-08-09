@@ -10,78 +10,83 @@
     <title>My Projects</title>
 
     <style>
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px 0;
-        }
-
-        /* Project Card Styling */
-        .project-card {
+        /* Highlight Row Layout (swapped from certifications style) */
+        .project-row {
+            display: flex;
             background: rgba(20, 20, 40, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            position: relative;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        .project-row:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
         }
 
-        .project-card img {
-            width: 100%;
-            height: 200px;
+        .project-image {
+            width: 50%;
+            height: auto;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.1);
+            padding: 20px;
         }
 
         .project-content {
-            padding: 20px;
-            position: relative;
-        }
-
-        .project-card h3 {
-            color: #ffcc70;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .project-card p {
+            width: 50%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             color: #e0e0e0;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            min-height: 80px;
         }
 
-        /* GitHub Button */
-        .github-btn {
+        .project-content h3 {
+            color: #ffcc70;
+            margin-bottom: 12px;
+            font-size: 1.6rem;
+        }
+
+        .project-content p {
+            color: #e0e0e0;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .project-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .github-btn, .live-btn {
             display: inline-block;
-            padding: 10px 25px;
-            background: linear-gradient(45deg, #ffcc70, #ff7eb3);
-            color: #1a1a1a;
-            text-decoration: none;
+            padding: 10px 22px;
             border-radius: 25px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            text-decoration: none;
+            transition: all 0.25s ease;
         }
 
-        .github-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            text-decoration: none;
+        .github-btn {
+            background: linear-gradient(45deg, #ffcc70, #ff7eb3);
             color: #1a1a1a;
         }
+
+        .github-btn:hover { transform: translateY(-2px); text-decoration: none; color: #1a1a1a; }
+
+        .live-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ff7eb3;
+            color: #ffffff;
+        }
+
+        .live-btn:hover { transform: translateY(-2px); text-decoration: none; color: #ffffff; }
 
         /* Tech Stack Tags */
         .tech-stack {
@@ -101,10 +106,14 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+            .project-row { flex-direction: column; }
+            .project-image, .project-content { width: 100%; padding: 16px; }
+            .project-content { gap: 10px; }
+            .action-buttons { gap: 10px; }
         }
+
+        /* Ensure last item has spacing on mobile viewports */
+        .project-row:last-child { margin-bottom: 60px; }
 
         /* Add flex container styles */
         body {
@@ -139,9 +148,8 @@
                     <a class="nav-item nav-link" href="skills.html">Skills</a>
                     <a class="nav-item nav-link" href="projects.html">Projects</a>
                     <a class="nav-item nav-link" href="certifications.html">Certifications</a>
-                    <a class="nav-item nav-link" href="experience.html">Experience</a>
                     <a class="nav-item nav-link" href="contact.html">Contact</a>
-                    <a class="nav-item nav-link" href="assignments.html">Assignments</a>
+                    
                 </div>
             </div>
         </div>
@@ -152,66 +160,86 @@
             <h1 class="display-4">My Projects</h1>
         </div>
 
-        <div class="projects-grid">
-            <!-- IBM SkillsBuild Data Analytics Project -->
-            <div class="project-card">
-                <img src="assets/projects/ibm-data.png" alt="IBM Data Analytics">
+        <!-- Highlight Rows -->
+        <div>
+            <!-- KrishiMitra AI -->
+            <div class="project-row">
+                <img src="assets/projects/KrishiMitra-AI.png" alt="KrishiMitra AI" class="project-image">
                 <div class="project-content">
-                    <h3>Data Analytics Project</h3>
+                    <h3>KrishiMitra AI (Team Lead) — IBM SkillsBuild AI-ML Internship Capstone</h3>
                     <div class="tech-stack">
-
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Data Analysis</span>
-                        <span class="tech-tag">Visualization</span>
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">EfficientNetB0</span>
+                        <span class="tech-tag">Web Scraping</span>
+                        <span class="tech-tag">APIs</span>
                     </div>
-                    <p>A comprehensive data analysis project from the IBM SkillsBuild program, focusing on analyzing car dataset using Python for data-driven insights and visualizations.</p>
-                    <a href="https://github.com/shivamr021/ibm-skillsbuild-data-project" class="github-btn" target="_blank">View on GitHub</a>
+                    <ul>
+                        <li>Led a 7-person team to build a bilingual, multi-agent AI assistant for farmers; trained plant disease diagnosis model and integrated market price scraper and live weather API agent.</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="https://krishimitra-ai.streamlit.app/" class="live-btn" target="_blank" rel="noopener">Try it</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- ToDo List Project -->
-            <div class="project-card">
-                <img src="assets/projects/todo_list.png" alt="ToDo List">
+            <!-- AI Agent Suite -->
+            <div class="project-row">
+                <img src="assets/projects/AI_Agent_Suite.png" alt="AI Agent Suite" class="project-image">
                 <div class="project-content">
-                    <h3>ToDo List</h3>
+                    <h3>AI Agent Suite</h3>
                     <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">File Handling</span>
-                        <span class="tech-tag">CLI</span>
+                        <span class="tech-tag">Ollama</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Speech</span>
+                        <span class="tech-tag">Web Scraping</span>
                     </div>
-                    <p>A Python ToDo List app for managing tasks with features like add, remove, view, save, load, and append.</p>
-                    <a href="https://github.com/shivamr021/ToDo-List" class="github-btn" target="_blank">View on GitHub</a>
+                    <ul>
+                        <li>Agent suite powered by local LLMs to automate real-time queries: voice interaction, document Q&A, and web scraping; improved workflows by 40%+.</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="https://github.com/shivamr021/ollama-langchain-agents" class="github-btn" target="_blank" rel="noopener">GitHub</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Django Calculator Project -->
-            <div class="project-card">
-                <img src="assets/projects/django-calculator.png" alt="Django Calculator">
+            <!-- DjangoCart -->
+            <div class="project-row">
+                <img src="assets/projects/DjangoCart.png" alt="DjangoCart" class="project-image">
                 <div class="project-content">
-                    <h3>Django Calculator</h3>
+                    <h3>DjangoCart</h3>
                     <div class="tech-stack">
                         <span class="tech-tag">Django</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">MVT</span>
+                        <span class="tech-tag">Auth</span>
+                        <span class="tech-tag">Responsive</span>
                     </div>
-                    <p>A web-based calculator application built using Django. It provides a user-friendly interface for performing basic arithmetic operations.</p>
-                    <a href="https://github.com/shivamr021/django-calculator" class="github-btn" target="_blank">View on GitHub</a>
+                    <ul>
+                        <li>Full-stack e-commerce with secure auth, dynamic catalog, category pages, and cart; optimized for 1,000+ concurrent transactions with 95% mobile compatibility.</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="https://djangocart.onrender.com/" class="live-btn" target="_blank" rel="noopener">Try it</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- BAMS Management System -->
-            <div class="project-card">
-                <img src="assets/projects/bams.png" alt="BAMS Management System">
+            <!-- Automotive Data Analysis -->
+            <div class="project-row">
+                <img src="assets/projects/ibm-data.png" alt="Automotive Data Analysis" class="project-image">
                 <div class="project-content">
-                    <h3>Bank Account Management System</h3>
+                    <h3>Automotive Data Analysis</h3>
                     <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">OOP</span>
-                        <span class="tech-tag">File I/O</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">EDA</span>
                     </div>
-                    <p>A complete Banking and Account Management System (BAMS) built using Python for tracking accounts, transactions, and user details securely.</p>
-                    <a href="https://github.com/shivamr021/bank-account-management-system" class="github-btn" target="_blank">View on GitHub</a>
+                    <ul>
+                        <li>Preprocessing, statistical modeling, and visualization of automotive datasets; identified 15+ trends with 99.5% accuracy via interactive dashboards.</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="https://github.com/shivamr021/ibm-skillsbuild-data-project" class="github-btn" target="_blank" rel="noopener">GitHub</a>
+                    </div>
                 </div>
             </div>
         </div>

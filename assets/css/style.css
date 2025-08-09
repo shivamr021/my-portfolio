@@ -3,14 +3,73 @@ body, .navbar, .navbar-brand, .navbar-nav .nav-link {
     font-family: 'Poppins', sans-serif !important;
 }
 
+/* Cosmic theme variables */
+:root {
+    --space-bg: #0b0f1a;
+    --space-bg-2: #12172a;
+    --accent: #7f5af0;      /* purple */
+    --accent-2: #2cb67d;    /* teal */
+    --soft-cyan: #33d6ff;
+    --text: #e6e6e6;
+    --muted: #a0a8b8;
+    --glass: rgba(15, 20, 35, 0.55);
+    --glass-strong: rgba(15, 20, 35, 0.75);
+    --border: rgba(255, 255, 255, 0.12);
+}
+
 body {
-    background: linear-gradient(135deg, rgb(56, 15, 100) 0%, #2575fc 50%, #e3f2fd 100%);
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     padding-top: 70px;
+    color: var(--text);
+    background: radial-gradient(1200px 800px at -10% -10%, #1a2240 0%, transparent 60%),
+                radial-gradient(1000px 700px at 120% -20%, #1b1231 0%, transparent 55%),
+                linear-gradient(180deg, var(--space-bg) 0%, var(--space-bg-2) 100%);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Star layers */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* small stars */
+body::before {
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8) 50%, transparent 51%),
+        radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.7) 50%, transparent 51%),
+        radial-gradient(1px 1px at 60% 30%, rgba(255,255,255,0.75) 50%, transparent 51%),
+        radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,0.6) 50%, transparent 51%),
+        radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.65) 50%, transparent 51%);
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    opacity: 0.35;
+    animation: drift 120s linear infinite;
+}
+
+/* bigger stars / glows */
+body::after {
+    background-image:
+        radial-gradient(2px 2px at 20% 40%, rgba(255,255,255,0.7) 50%, transparent 51%),
+        radial-gradient(2px 2px at 70% 20%, rgba(255,255,255,0.6) 50%, transparent 51%),
+        radial-gradient(2px 2px at 40% 70%, rgba(255,255,255,0.65) 50%, transparent 51%);
+    background-repeat: repeat;
+    background-size: 500px 500px;
+    opacity: 0.25;
+    animation: drift 180s linear infinite reverse;
+}
+
+@keyframes drift {
+    from { transform: translateY(0); }
+    to { transform: translateY(-600px); }
 }
 
 .content-wrap {
@@ -19,8 +78,12 @@ body {
 
 /* NAVBAR STYLES */
 .navbar {
-    background: linear-gradient(135deg, #2c3e50, #4ca1af);
-    padding: 15px 0;
+    background: linear-gradient(135deg, rgba(20,25,45,0.85), rgba(20,25,45,0.65));
+    backdrop-filter: saturate(120%) blur(10px);
+    -webkit-backdrop-filter: saturate(120%) blur(10px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    padding: 14px 0;
     font-size: 18px;
     position: fixed;
     width: 100%;
@@ -50,30 +113,33 @@ body {
 }
 
 .navbar-nav .nav-link {
-    color: white !important;
-    font-weight: 500;
-    transition: 0.3s;
+    color: var(--text) !important;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #f1c40f !important;
+    color: var(--soft-cyan) !important;
+    transform: translateY(-1px);
 }
 
 /* FOOTER STYLES */
 .footer {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: white;
+    background: linear-gradient(135deg, rgba(20,25,45,0.9), rgba(20,25,45,0.75));
+    border-top: 1px solid var(--border);
+    color: var(--text);
     text-align: center;
-    padding: 15px;
+    padding: 18px;
     width: 100%;
     position: relative;
     bottom: 0;
 }
 
 .footer a {
-    color: #f1c40f;
+    color: var(--accent-2);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .footer a:hover {
@@ -82,22 +148,36 @@ body {
 
 /* Jumbotron Styling - Common across pages */
 .jumbotron {
+    position: relative;
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, rgba(56, 15, 100, 0.8), rgba(37, 117, 252, 0.8));
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 56px 24px;
+    background: linear-gradient(160deg, var(--glass) 0%, var(--glass-strong) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.03) inset;
     margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.jumbotron::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px 200px at 10% 0%, rgba(127,90,240,0.25), transparent 60%),
+                radial-gradient(600px 200px at 90% 100%, rgba(44,182,125,0.2), transparent 60%);
+    pointer-events: none;
 }
 
 .jumbotron h1 {
-    font-size: 3.5rem;
-    font-weight: bold;
+    color: var(--text);
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #ffcc70, #ff7eb3);
+    background: linear-gradient(90deg, var(--soft-cyan), var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 20px rgba(127,90,240,0.25);
 }
 
 /* Responsive Design */

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,14 +53,14 @@
         }
 
         /* Skills Grid */
-        .skills-container > div {
+        .skills-container>div {
             display: none;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             padding: 20px;
         }
 
-        .skills-container > div.active {
+        .skills-container>div.active {
             display: grid;
         }
 
@@ -100,24 +101,6 @@
             transform: scale(1.1);
         }
 
-        /* Progress Bar Animation */
-        .skill::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #ffcc70, #ff7eb3);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-        }
-
-        .skill:hover::after {
-            transform: scaleX(1);
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .skill-section-desc {
@@ -130,7 +113,7 @@
                 text-align: center;
             }
 
-            .skills-container > div {
+            .skills-container>div {
                 grid-template-columns: 1fr;
             }
         }
@@ -155,9 +138,8 @@
                     <a class="nav-item nav-link" href="skills.html">Skills</a>
                     <a class="nav-item nav-link" href="projects.html">Projects</a>
                     <a class="nav-item nav-link" href="certifications.html">Certifications</a>
-                    <a class="nav-item nav-link" href="experience.html">Experience</a>
                     <a class="nav-item nav-link" href="contact.html">Contact</a>
-                    <a class="nav-item nav-link" href="assignments.html">Assignments</a>
+
                 </div>
             </div>
         </div>
@@ -170,25 +152,53 @@
 
         <div class="skills-wrapper">
             <div class="skill-section-desc">
-                <h2 class="tab active-tab" data-target="skill-frontend">Frontend</h2>
-                <h2 class="tab" data-target="skill-backend">Backend & Database</h2>
-                <h2 class="tab" data-target="skill-other">Other Tools</h2>
+                <h2 class="tab active-tab" data-target="skill-frontend">Programming & Web</h2>
+                <h2 class="tab" data-target="skill-backend">AIML & Data</h2>
+                <h2 class="tab" data-target="skill-other">Platforms & Tools</h2>
             </div>
 
             <div class="skills-container">
-                <!-- Frontend Section -->
-                <div id="skill-frontend" class="skill-frontend active"> 
-                    <div class="skill">
-                        <h4>HTML</h4>
-                        <img src="assets/images/html.png" alt="HTML">
+                <!-- Programming & Web -->
+                <div id="skill-frontend" class="skill-frontend active">
+                    <!-- <div class="skill">
+                        <h4>C</h4>
+                        <img src="assets/images/C.png" alt="C">
                     </div>
                     <div class="skill">
-                        <h4>CSS</h4>
-                        <img src="assets/images/css.png" alt="CSS">
+                        <h4>C++</h4>
+                        <img src="assets/images/C++ (CPlusPlus).png" alt="C++">
+                    </div> -->
+                    <div class="skill">
+                        <h4>Python</h4>
+                        <img src="assets/images/python.png" alt="Python">
                     </div>
                     <div class="skill">
                         <h4>JavaScript</h4>
-                        <img src="assets/images/js.png" alt="JavaScript">
+                        <img src="assets/images/JavaScript.png" alt="JavaScript">
+                    </div>
+                    <!-- <div class="skill">
+                        <h4>Java</h4>
+                        <img src="assets/images/Java.png" alt="Java">
+                    </div> -->
+                    <div class="skill">
+                        <h4>SQL</h4>
+                        <img src="assets/images/postgresql.png" alt="SQL">
+                    </div>
+                    <div class="skill">
+                        <h4>Django</h4>
+                        <img src="assets/images/django.png" alt="Django">
+                    </div>
+                    <div class="skill">
+                        <h4>Streamlit</h4>
+                        <img src="assets/images/Streamlit.png" alt="Streamlit">
+                    </div>
+                    <div class="skill">
+                        <h4>HTML5</h4>
+                        <img src="assets/images/html.png" alt="HTML5">
+                    </div>
+                    <div class="skill">
+                        <h4>CSS3</h4>
+                        <img src="assets/images/css.png" alt="CSS3">
                     </div>
                     <div class="skill">
                         <h4>Bootstrap</h4>
@@ -196,28 +206,64 @@
                     </div>
                 </div>
 
-                <!-- Backend Section -->
-                <div id="skill-backend" class="skill-backend"> 
+                <!-- AIML & Data Tools -->
+                <div id="skill-backend" class="skill-backend">
                     <div class="skill">
-                        <h4>Django</h4>
-                        <img src="assets/images/django.png" alt="Django">
+                        <h4>TensorFlow</h4>
+                        <img src="assets/images/TensorFlow.png" alt="TensorFlow">
                     </div>
                     <div class="skill">
-                        <h4>PostgreSQL</h4>
-                        <img src="assets/images/postgresql.png" alt="PostgreSQL">
+                        <h4>Keras</h4>
+                        <img src="assets/images/Keras.png" alt="Keras">
+                    </div>
+                    <div class="skill">
+                        <h4>Scikit-learn</h4>
+                        <img src="assets/images/scikit-learn.png" alt="Scikit-learn">
+                    </div>
+                    <div class="skill">
+                        <h4>Pandas</h4>
+                        <img src="assets/images/Pandas.png" alt="Pandas">
+                    </div>
+                    <div class="skill">
+                        <h4>NumPy</h4>
+                        <img src="assets/images/NumPy.png" alt="NumPy">
+                    </div>
+                    <div class="skill">
+                        <h4>Matplotlib</h4>
+                        <img src="assets/images/Matplotlib.png" alt="Matplotlib">
+                    </div>
+                    <div class="skill">
+                        <h4>LangChain</h4>
+                        <img src="assets/images/LangChain.png" alt="LangChain">
+                    </div>
+                    <div class="skill">
+                        <h4>Ollama</h4>
+                        <img src="assets/images/Ollama.png" alt="Ollama">
                     </div>
                 </div>
 
-                <!-- Other Tools Section -->
-                <div id="skill-other" class="skill-other"> 
+                <!-- Platforms & Security -->
+                <div id="skill-other" class="skill-other">
                     <div class="skill">
-                        <h4>Git & Github</h4>
-                        <img src="assets/images/github-mark.png" alt="GitHub">
+                        <h4>Git</h4>
+                        <img src="assets/images/Git.png" alt="Git">
+                    </div>
+                    <div class="skill">
+                        <h4>GitHub</h4>
+                        <img src="assets/images/GitHub.png" alt="GitHub">
+                    </div>
+                    <div class="skill">
+                        <h4>Jupyter Notebook</h4>
+                        <img src="assets/images/Jupyter.png" alt="Jupyter Notebook">
                     </div>
                     <div class="skill">
                         <h4>Canva</h4>
                         <img src="assets/images/canva.png" alt="Canva">
                     </div>
+                    <!-- <div class="skill">
+                        <h4>Network Security</h4>
+                        <img src="assets/images/web.png" alt="Network Security">
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -232,19 +278,16 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const tabs = document.querySelectorAll('.tab');
             const skillSections = document.querySelectorAll('.skills-container > div');
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    // Remove active class from all tabs and sections
                     tabs.forEach(t => t.classList.remove('active-tab'));
                     skillSections.forEach(section => section.classList.remove('active'));
 
-                    // Add active class to clicked tab and corresponding section
                     tab.classList.add('active-tab');
                     const targetSection = document.getElementById(tab.dataset.target);
                     targetSection.classList.add('active');
@@ -252,5 +295,7 @@
             });
         });
     </script>
+
 </body>
+
 </html>

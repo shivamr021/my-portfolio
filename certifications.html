@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,101 +11,67 @@
     <title>Certifications - Shivam Rathod</title>
 
     <style>
-        /* Certificate Layout */
-        .certification-row {
-            display: flex;
+        /* Grid cards layout (swapped from projects style) */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .cert-card {
             background: rgba(20, 20, 40, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             overflow: hidden;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .certification-image {
-            width: 50%;
+        .cert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cert-card img {
+            width: 100%;
             height: auto;
-            object-fit: cover;
+            max-height: 360px;
+            object-fit: contain; /* show full certificate without cropping */
+            background: rgba(255,255,255,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* dedicate a neutral background so white certs are visible */
+        .cert-card .img-wrap { background: rgba(0,0,0,0.15); display: block; }
+
+        .cert-card a:hover img {
+            transform: scale(1.02);
+        }
+
+        .cert-content {
             padding: 20px;
         }
 
-        .certification-content {
-            width: 50%;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: #e0e0e0;
-        }
-
-        .certification-content h3 {
+        .cert-content h3 {
             color: #ffcc70;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
-        .certification-content p {
+        .cert-content p {
             color: #e0e0e0;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            margin-bottom: 12px;
         }
 
-        .certification-row:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        /* Card Layout for Mobile */
-        .certification-card {
-            display: none;
-            background: rgba(20, 20, 40, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .certification-card img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            padding: 15px;
-        }
-
-        .certification-card .certification-content {
-            width: 100%;
-            padding: 20px;
-        }
-
-        /* List Styling */
-        ul {
+        .cert-content ul {
             list-style: none;
             padding-left: 0;
+            margin: 0;
         }
 
-        li {
-            margin-bottom: 10px;
+        .cert-content li {
             color: #e0e0e0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .certification-row {
-                flex-direction: column;
-            }
-
-            .certification-image {
-                width: 100%;
-                height: auto;
-            }
-
-            .certification-content {
-                width: 100%;
-                padding: 20px;
-            }
-
-            .certification-row:nth-child(even) {
-                flex-direction: column;
-            }
+            margin-bottom: 8px;
         }
 
         /* Add flex container styles */
@@ -139,9 +106,8 @@
                     <a class="nav-item nav-link" href="skills.html">Skills</a>
                     <a class="nav-item nav-link" href="projects.html">Projects</a>
                     <a class="nav-item nav-link" href="certifications.html">Certifications</a>
-                    <a class="nav-item nav-link" href="experience.html">Experience</a>
                     <a class="nav-item nav-link" href="contact.html">Contact</a>
-                    <a class="nav-item nav-link" href="assignments.html">Assignments</a>
+
                 </div>
             </div>
         </div>
@@ -152,74 +118,76 @@
             <h1 class="display-4">My Certifications</h1>
         </div>
 
-        <!-- Desktop Layout -->
-        <div class="certifications-desktop">
-            <!-- IBM Certification -->
-            <div class="certification-row">
-                <img src="assets/certificates/ibm-wp.jpg" class="certification-image" alt="IBM Certification">
-                <div class="certification-content">
-                    <h3>IBM SkillsBuild Winter Certification Program</h3>
-                    <p>Successfully completed the IBM SkillsBuild Winter Certification Program: "Turning Data into Decisions using Python" with CSRBOX (Dec 23, 2024 - Jan 6, 2025).</p>
-                    <ul>
-                        <li>✅ Python programming for data analytics</li>
-                        <li>✅ Data visualization techniques</li>
-                        <li>✅ Analyzing datasets for insights</li>
-                        <li>✅ Exploring Jupyter Notebooks</li>
-                    </ul>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <a class="img-wrap" href="https://www.coursera.org/account/accomplishments/verify/DZNF0RFB3I7D" target="_blank" rel="noopener">
+                    <img src="assets/certificates/ai-essentials.png" alt="AI Essentials | Google">
+                </a>
+                <div class="cert-content">
+                    <h3>AI Essentials | Google</h3>
+                    <p> Studied core AI principles and ethical practices, learning implementation strategies for
+                        responsible, real-world AI development..</p>
                 </div>
             </div>
 
-            <!-- Google Certification -->
-            <div class="certification-row">
-                <img src="assets/certificates/google-cs-1.jpg" class="certification-image" alt="Google Certification">
-                <div class="certification-content">
-                    <h3>Google Foundations of Cybersecurity</h3>
-                    <p>Earned the Google Foundations of Cybersecurity certification through Grow with Google on Coursera (Jan 2024).</p>
-                    <ul>
-                        <li>✅ Cybersecurity fundamentals</li>
-                        <li>✅ Ethics in cybersecurity</li>
-                        <li>✅ NIST Cybersecurity Framework</li>
-                        <li>✅ INFOSEC and historical attacks</li>
-                    </ul>
+            <div class="cert-card">
+                <a class="img-wrap" href="https://www.linkedin.com/posts/shivamrathod021_ibm-skillsbuild-winter-certificate-program-activity-7285657155444031489-8urK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZXcGYB71OCYtK1qcPrPnUdS-K1sWhQmVA" target="_blank" rel="noopener">
+                    <img src="assets/certificates/ibm-wp.jpg" alt="IBM SkillsBuild: Data Fundamentals">
+                </a>
+                <div class="cert-content">
+                    <h3>Skills-Build Data Fundamentals (IBM)</h3>
+                    <p>Applied data analytics concepts by performing statistical analysis and data refinement, using IBM
+                        Watson Studio for visualization.</p>
                 </div>
             </div>
 
-            <!-- Google Play It Safe -->
-            <div class="certification-row">
-                <img src="assets/certificates/google-cs-2.jpg" class="certification-image" alt="Google Play It Safe">
-                <div class="certification-content">
-                    <h3>Google Play It Safe: Manage Security Risks</h3>
-                    <p>Completed the Google Play It Safe certification through Grow with Google on Coursera (Jan 2024).</p>
-                    <ul>
-                        <li>✅ Security audits</li>
-                        <li>✅ NIST Risk Management Framework (RMF)</li>
-                        <li>✅ Incident response playbooks</li>
-                        <li>✅ NIST Cybersecurity Framework (CSF)</li>
-                    </ul>
+            <div class="cert-card">
+                <a class="img-wrap" href="https://www.linkedin.com/posts/shivamrathod021_certificate-of-completion-of-gccf-and-gen-activity-7152184700449574912-Kzwj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZXcGYB71OCYtK1qcPrPnUdS-K1sWhQmVA" target="_blank" rel="noopener">
+                    <img src="assets/certificates/GCCF.png" alt="Google Cloud Computing & Gen AI | Google Cloud Study Jam">
+                </a>
+                <div class="cert-content">
+                    <h3>Google Cloud Computing & Gen AI | Google Cloud Study Jam</h3>
+                    <p> Completed foundational training in Google
+                        Cloud and prompt engineering, applying GenAI techniques and cloud tools to real-world scenarios.
+                    </p>
                 </div>
             </div>
 
-            <!-- Microsoft Certification -->
-            <div class="certification-row">
-                <img src="assets/certificates/microsoft-cs.jpg" class="certification-image" alt="Microsoft Certification">
-                <div class="certification-content">
-                    <h3>Microsoft Introduction to Computers and Operating Systems</h3>
-                    <p>Achieved certification in "Microsoft Introduction to Computers and Operating Systems and Security".</p>
-                    <ul>
-                        <li>✅ Cybersecurity fundamentals</li>
-                        <li>✅ Cloud computing principles</li>
-                        <li>✅ Computer architecture</li>
-                        <li>✅ Operating systems</li>
-                    </ul>
+            <div class="cert-card">
+                <a class="img-wrap" href="https://www.coursera.org/account/accomplishments/verify/HX6FPXT3QS4J" target="_blank" rel="noopener">
+                    <img src="assets/certificates/google-cs-1.jpg" alt="Foundations of Cybersecurity | Google">
+                </a>
+                <div class="cert-content">
+                    <h3>Foundations of Cybersecurity | Google</h3>
+                    <p> Developed skills in threat analysis and risk assessment, utilizing security
+                        frameworks and tools to understand the impact of attacks on business operations.</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <a class="img-wrap" href="https://www.coursera.org/account/accomplishments/verify/JHJ46ZCSAV88" target="_blank" rel="noopener">
+                    <img src="assets/certificates/google-cs-2.jpg" alt="Play It Safe | Google">
+                </a>
+                <div class="cert-content">
+                    <h3>Play It Safe: Manage Security Risks | Google</h3>
+                    <p> Implemented security frameworks and SIEM tools for risk
+                        mitigation while examining key controls for securing business-critical systems.</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <a class="img-wrap" href="https://www.coursera.org/account/accomplishments/verify/74GRKYNNYERU" target="_blank" rel="noopener">
+                    <img src="assets/certificates/microsoft-cs.jpg" alt="Computer & OS Security | Microsoft: ">
+                </a>
+                <div class="cert-content">
+                    <h3>Computer & OS Security | Microsoft </h3>
+                    <p>Explored secure system design, encryption, and access control; understood modern cybersecurity
+                        threats and responses.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Layout -->
-        <div class="certifications-mobile">
-            <!-- Mobile cards will be shown automatically via CSS media queries -->
-            <!-- The same content as above but in card format -->
-        </div>
+        <!-- Removed the separate description list; descriptions are now inside the cards -->
     </div>
 
     <!-- Footer -->
@@ -232,4 +200,5 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

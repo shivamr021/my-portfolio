@@ -86,6 +86,10 @@
         .btn-danger-custom { background-color: #d93025; }
         .btn-orange-custom { background-color: #ff6f00; }
         .btn-yellow-custom { background-color: #f4b400; }
+        .btn-black-custom { background-color: #000000; }
+        .btn-gray-custom { background-color: #6c757d; }
+        .btn-medium-custom { background-color: #00ab6c; }
+        .btn-peerlist-custom { background-color: #6a5acd; }
 
         /* Link Styling */
         .card-body a {
@@ -100,31 +104,12 @@
             color: white;
         }
 
-        /* Grid Layout */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: -10px;
-            margin-bottom: 30px; /* Standardize gap before footer */
-        }
-
-        .col {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @media (max-width: 992px) {
-            .col {
-                flex: 1 1 calc(50% - 20px);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .col {
-                flex: 1 1 100%;
-            }
-        }
+        /* Grid Layout: 4 per row on desktop */
+        .row { display: flex; flex-wrap: wrap; margin: -10px; margin-bottom: 30px; }
+        .col { padding: 10px; display: flex; flex-direction: column; flex: 1 1 calc(25% - 20px); }
+        @media (max-width: 992px) { .col { flex: 1 1 calc(33.333% - 20px); } }
+        @media (max-width: 768px) { .col { flex: 1 1 calc(50% - 20px); } }
+        @media (max-width: 576px) { .col { flex: 1 1 100%; } }
 
         /* Add flex container styles */
         body {
@@ -167,9 +152,8 @@
                     <a class="nav-item nav-link" href="skills.html">Skills</a>
                     <a class="nav-item nav-link" href="projects.html">Projects</a>
                     <a class="nav-item nav-link" href="certifications.html">Certifications</a>
-                    <a class="nav-item nav-link" href="experience.html">Experience</a>
                     <a class="nav-item nav-link" href="contact.html">Contact</a>
-                    <a class="nav-item nav-link" href="assignments.html">Assignments</a>
+                    
                 </div>
             </div>
         </div>
@@ -180,7 +164,20 @@
             <h1 class="display-4">Get in Touch</h1>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="row">
+            <div class="col">
+                <div class="card text-center">
+                    <img src="assets/images/codolio.png" class="card-img-top" alt="Codolio Logo">
+                    <div class="card-body">
+                        <h5 class="card-title">Codolio</h5>
+                        <button class="btn btn-gray-custom btn-custom">
+                            <a href="https://codolio.com/profile/shivamr021/card" target="_blank">View Portfolio</a>
+                        </button>
+                        <p class="card-text">Portfolio that aggregates coding profiles and projects.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="col">
                 <div class="card text-center">
                     <img src="assets/images/linkedIn.png" class="card-img-top" alt="LinkedIn Logo">
@@ -189,7 +186,7 @@
                         <button class="btn btn-primary-custom btn-custom">
                             <a href="https://www.linkedin.com/in/shivamrathod021/" target="_blank">Connect</a>
                         </button>
-                        <p class="card-text">Connect professionally and explore my career journey.</p>
+                        <p class="card-text">Connect professionally and explore my journey.</p>
                     </div>
                 </div>
             </div>
@@ -202,46 +199,7 @@
                         <button class="btn btn-dark-custom btn-custom">
                             <a href="https://github.com/shivamr021" target="_blank">View Projects</a>
                         </button>
-                        <p class="card-text">Check out my repositories and contributions.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card text-center">
-                    <img src="assets/images/hackerrank.png" class="card-img-top" alt="HackerRank Logo">
-                    <div class="card-body">
-                        <h5 class="card-title">HackerRank</h5>
-                        <button class="btn btn-green-custom btn-custom">
-                            <a href="https://www.hackerrank.com/profile/shivamrathod145" target="_blank">View Profile</a>
-                        </button>
-                        <p class="card-text">See my coding challenges and achievements.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card text-center">
-                    <img src="assets/images/leetcode.png" class="card-img-top" alt="LeetCode Logo">
-                    <div class="card-body">
-                        <h5 class="card-title">LeetCode</h5>
-                        <button class="btn btn-orange-custom btn-custom">
-                            <a href="https://leetcode.com/u/shivam021/" target="_blank">View Challenges</a>
-                        </button>
-                        <p class="card-text">Follow my problem-solving journey.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card text-center">
-                    <img src="assets/images/credly.png" class="card-img-top" alt="Credly Logo">
-                    <div class="card-body">
-                        <h5 class="card-title">Credly</h5>
-                        <button class="btn btn-yellow-custom btn-custom">
-                            <a href="https://www.credly.com/users/shivamrathod021/" target="_blank">View Certifications</a>
-                        </button>
-                        <p class="card-text">See my earned certifications and achievements.</p>
+                        <p class="card-text">Repositories and contributions.</p>
                     </div>
                 </div>
             </div>
@@ -250,7 +208,7 @@
                 <div class="card text-center">
                     <img src="assets/images/gmail.png" class="card-img-top" alt="Gmail Logo">
                     <div class="card-body">
-                        <h5 class="card-title">Email Me</h5>
+                        <h5 class="card-title">Email</h5>
                         <button class="btn btn-danger-custom btn-custom">
                             <a href="mailto:shivamrathod145@gmail.com">Send Email</a>
                         </button>

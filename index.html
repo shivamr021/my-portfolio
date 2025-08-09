@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-    
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -27,17 +28,20 @@
 
         .profile-image {
             border: 5px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 30px rgba(37, 117, 252, 0.5);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            max-width: 400px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            max-width: 420px;
             width: 100%;
-            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
             margin: 0 auto;
+            border-radius: 50%;
+            /* perfect circle */
         }
 
         .profile-image:hover {
-            transform: scale(1.02) rotate(2deg);
-            box-shadow: 0 0 40px rgba(37, 117, 252, 0.8);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
         }
 
         .main-title {
@@ -45,6 +49,7 @@
             font-weight: 700;
             margin-bottom: 1rem;
             background: linear-gradient(90deg, #ffcc70, #ff7eb3);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -57,9 +62,17 @@
         }
 
         .hero-section-p {
-            font-size: 2.5rem;
+            font-size: clamp(1.25rem, 4.5vw, 2.5rem);
             font-weight: 500;
+            line-height: 1.2;
+            min-height: 1.2em; /* prevent layout jump during typing */
+            white-space: nowrap; /* keep the whole line on one row */
+            overflow: hidden;   /* avoid horizontal scroll on very small screens */
         }
+
+        /* Keep typed content to one line; avoid wrap and jitter */
+        #text { display: inline-block; white-space: nowrap; max-width: 100%; }
+        .typed-cursor { display: inline-block; vertical-align: -0.15em; }
 
         .wave {
             animation: wave 2.5s infinite;
@@ -68,20 +81,46 @@
         }
 
         @keyframes wave {
-            0% { transform: rotate(0deg); }
-            10% { transform: rotate(14deg); }
-            20% { transform: rotate(-8deg); }
-            30% { transform: rotate(14deg); }
-            40% { transform: rotate(-4deg); }
-            50% { transform: rotate(10deg); }
-            60% { transform: rotate(0deg); }
-            100% { transform: rotate(0deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            10% {
+                transform: rotate(14deg);
+            }
+
+            20% {
+                transform: rotate(-8deg);
+            }
+
+            30% {
+                transform: rotate(14deg);
+            }
+
+            40% {
+                transform: rotate(-4deg);
+            }
+
+            50% {
+                transform: rotate(10deg);
+            }
+
+            60% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
         }
 
         .social-links {
             display: flex;
             gap: 1.5rem;
         }
+
+        /* Prevent flex overflow causing typed line wrap */
+        .intro-text { min-width: 0; }
 
         .social-icon {
             color: white;
@@ -130,6 +169,15 @@
             .intro-section {
                 flex-direction: column;
                 text-align: center;
+                gap: 1.5rem;
+            }
+
+            .intro-image {
+                margin-bottom: 8px;
+            }
+
+            .intro-text {
+                margin-top: 8px;
             }
 
             .main-title {
@@ -140,9 +188,7 @@
                 font-size: 1.8rem;
             }
 
-            .hero-section-p {
-                font-size: 1.5rem;
-            }
+            .hero-section-p { min-height: 1.2em; }
         }
 
         /* Add flex container styles */
@@ -154,7 +200,8 @@
 
         .container-fluid {
             flex: 1;
-            margin-bottom: 30px; /* Standard gap before footer */
+            margin-bottom: 30px;
+            /* Standard gap before footer */
         }
     </style>
 </head>
@@ -177,9 +224,8 @@
                     <a class="nav-item nav-link" href="skills.html">Skills</a>
                     <a class="nav-item nav-link" href="projects.html">Projects</a>
                     <a class="nav-item nav-link" href="certifications.html">Certifications</a>
-                    <a class="nav-item nav-link" href="experience.html">Experience</a>
                     <a class="nav-item nav-link" href="contact.html">Contact</a>
-                    <a class="nav-item nav-link" href="assignments.html">Assignments</a>
+
                 </div>
             </div>
         </div>
@@ -188,15 +234,19 @@
     <div class="container-fluid py-5">
         <div class="intro-section d-flex align-items-center">
             <div class="intro-image col-md-6">
-                <img src="assets/images/profile.jpg" alt="Shivam Rathod" class="img-fluid rounded-circle shadow-lg profile-image">
-            </div> 
+                <img src="assets/images/portfolio_profile.png" alt="Shivam Rathod"
+                    class="img-fluid shadow-lg profile-image">
+            </div>
             <div class="intro-text col-md-6 text-start text-light">
                 <h1 class="main-title">Hello There! <span class="wave">👋</span></h1>
                 <h2 class="sub-title">I'm Shivam Rathod,</h2>
-                <p class="hero-section-p lead">I'm <span id="text"></span><span class="typed-cursor" aria-hidden="true">|</span></p>
+                <p class="hero-section-p lead">I'm <span id="text"></span><span class="typed-cursor"
+                        aria-hidden="true">|</span></p>
                 <div class="social-links mt-4">
-                    <a href="https://github.com/shivamr021" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/shivamrathod021/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/shivamr021" target="_blank" class="social-icon"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/shivamrathod021/" target="_blank" class="social-icon"><i
+                            class="fab fa-linkedin"></i></a>
                     <a href="mailto:shivamrathod145@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
                 </div>
                 <div class="cta-buttons mt-5">
@@ -217,22 +267,23 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    
+
     <script>
         var typed = new Typed('#text', {
             strings: [
-                'a Python Developer',
-                'a Django Developer',
-                'an AI/ML Enthusiast',
-                'a Problem Solver',
-                'a Content Writer'
+                'an AI Agent &amp; ML Developer',
+                'a Full-Stack AI Engineer',
+                'a Data-Driven Problem Solver',
+                'a Builder of Intelligent Systems',
+                'a Creative Technologist'
             ],
-            typeSpeed: 50,
-            backSpeed: 30,
-            backDelay: 1000,
+            typeSpeed: 40,
+            backSpeed: 40,
+            backDelay: 1500,
             loop: true,
             smartBackspace: true
         }); 
     </script>
 </body>
+
 </html>
