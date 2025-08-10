@@ -105,9 +105,9 @@
             color: white;
         }
 
-        /* Grid Layout: 4 per row on desktop */
+        /* Grid Layout: 3 per row on desktop (2x3 target) */
         .row { display: flex; flex-wrap: wrap; margin: -10px; margin-bottom: 30px; }
-        .col { padding: 10px; display: flex; flex-direction: column; flex: 1 1 calc(25% - 20px); }
+        .col { padding: 10px; display: flex; flex-direction: column; flex: 1 1 calc(33.333% - 20px); }
         @media (max-width: 992px) { .col { flex: 1 1 calc(33.333% - 20px); } }
         @media (max-width: 768px) { .col { flex: 1 1 calc(50% - 20px); } }
         @media (max-width: 576px) { .col { flex: 1 1 100%; } }
@@ -123,15 +123,23 @@
             flex: 1;
         }
 
-        /* Update footer styles */
-        .footer {
+        /* Global footer */
+        .site-footer {
             margin-top: auto;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            text-align: center;
-            padding: 15px;
+            background: rgba(20, 20, 40, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
             width: 100%;
         }
+        .site-footer .footer-left { font-size: 0.95rem; }
+        .site-footer .footer-icons a { display: inline-block; margin-left: 10px; }
+        .site-footer .footer-icons img { height: 22px; width: auto; transition: transform 0.2s ease, opacity 0.2s ease; }
+        .site-footer .footer-icons a:hover img { transform: translateY(-2px) scale(1.05); opacity: 0.9; }
+        @media (max-width: 576px) { .site-footer { flex-direction: column; gap: 10px; } .site-footer .footer-icons { display: flex; gap: 12px; flex-wrap: wrap; } }
     </style>
 </head>
 
@@ -166,19 +174,7 @@
         </div>
 
         <div class="row">
-            <div class="col">
-                <div class="card text-center">
-                    <img src="assets/images/codolio.png" class="card-img-top" alt="Codolio Logo">
-                    <div class="card-body">
-                        <h5 class="card-title">Codolio</h5>
-                        <button class="btn btn-gray-custom btn-custom">
-                            <a href="https://codolio.com/profile/shivamr021/card" target="_blank">View Portfolio</a>
-                        </button>
-                        <p class="card-text">Portfolio that aggregates coding profiles and projects.</p>
-                    </div>
-                </div>
-            </div>
-
+            <!-- Row 1: LinkedIn, GitHub, Email -->
             <div class="col">
                 <div class="card text-center">
                     <img src="assets/images/linkedIn.png" class="card-img-top" alt="LinkedIn Logo">
@@ -211,19 +207,65 @@
                     <div class="card-body">
                         <h5 class="card-title">Email</h5>
                         <button class="btn btn-danger-custom btn-custom">
-                            <a href="mailto:shivamrathod145@gmail.com">Send Email</a>
+                            <a href="mailto:shivamrathod145@gmail.com" target="_blank">Send Email</a>
                         </button>
                         <p class="card-text">Reach out for inquiries or collaborations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Codolio, Medium, X -->
+            <div class="col">
+                <div class="card text-center">
+                    <img src="assets/images/codolio.png" class="card-img-top" alt="Codolio Logo">
+                    <div class="card-body">
+                        <h5 class="card-title">Codolio</h5>
+                        <button class="btn btn-gray-custom btn-custom">
+                            <a href="https://codolio.com/profile/shivamr021/card" target="_blank">View Portfolio</a>
+                        </button>
+                        <p class="card-text">Portfolio that aggregates coding profiles and projects.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card text-center">
+                    <img src="assets/images/medium.png" class="card-img-top" alt="Medium Logo">
+                    <div class="card-body">
+                        <h5 class="card-title">Medium</h5>
+                        <button class="btn btn-medium-custom btn-custom">
+                            <a href="https://medium.com/@shivamr021" target="_blank">READ ARTICLES</a>
+                        </button>
+                        <p class="card-text">Read my in-depth articles and tutorials on technology and development.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card text-center">
+                    <img src="assets/images/x.png" class="card-img-top" alt="X Logo">
+                    <div class="card-body">
+                        <h5 class="card-title">X</h5>
+                        <button class="btn btn-black-custom btn-custom">
+                            <a href="https://x.com/shivamr017" target="_blank">FOLLOW ON X</a>
+                        </button>
+                        <p class="card-text">Follow my professional thoughts, project updates, and industry insights.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        &copy; 2025 Shivam Rathod | All Rights Reserved |
-        <a href="contact.html">Contact Me</a>
+    <!-- Global Footer -->
+    <footer class="site-footer">
+        <div class="footer-left">© 2025 Shivam Rathod. All rights reserved.</div>
+        <div class="footer-icons">
+            <a href="https://www.linkedin.com/in/shivamrathod021/" target="_blank" rel="noopener"><img src="assets/images/linkedIn.png" alt="LinkedIn"></a>
+            <a href="https://github.com/shivamr021" target="_blank" rel="noopener"><img src="assets/images/github-mark.png" alt="GitHub"></a>
+            <a href="mailto:shivamrathod145@gmail.com" target="_blank" rel="noopener"><img src="assets/images/gmail.png" alt="Email"></a>
+            <a href="https://x.com/shivamr017" target="_blank" rel="noopener"><img src="assets/images/x.png" alt="X"></a>
+            <a href="https://medium.com/@shivamr021" target="_blank" rel="noopener"><img src="assets/images/medium.png" alt="Medium"></a>
+        </div>
     </footer>
 
     <!-- Scripts -->
