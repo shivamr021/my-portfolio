@@ -104,15 +104,41 @@ section {
   border-color: transparent;
 }
 
+/* Find and replace this class */
 .icon-btn {
   width: 34px;
   height: 34px;
   border-radius: 9999px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, .14);
-  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Made the default border a bit brighter */
+  background: transparent;
+  /* Cleaner look */
+  color: var(--gray-300);
+  /* High-contrast icon color */
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  /* Smooth transition for hover effect */
+}
+
+/* This is the new hover effect */
+.icon-btn:hover {
+  color: var(--white);
+  border-color: var(--violet);
+  background-color: rgba(155, 140, 255, 0.1);
+  box-shadow: 0 0 15px rgba(155, 140, 255, 0.35);
+  /* This creates the glow */
+  transform: translateY(-2px);
+  /* Adds a subtle lift */
+}
+
+/* This rule for .ico ensures the SVG icons correctly use the color we set */
+.ico {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  /* This is the key change */
 }
 
 .icon {
@@ -269,6 +295,11 @@ header .logo-accent {
   margin-bottom: 1rem;
 }
 
+.freelance-badge-link {
+  text-decoration: none;
+  color: inherit; 
+}
+
 .pulse-container {
   position: relative;
   display: flex;
@@ -346,23 +377,42 @@ h1+p {
 }
 
 .hero-btn-primary {
-  background-color: var(--white);
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
   color: var(--ink);
   font-weight: 600;
   border-radius: 0.75rem;
   padding: 0.75rem 1.25rem;
   text-decoration: none;
-  transition: box-shadow 0.2s ease;
+  border: none;
+  transition: all 0.2s ease;
 }
 
 .hero-btn-primary:hover {
-  box-shadow: 0 0 40px rgba(0, 229, 255, .30);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 229, 255, .35);
 }
 
 .hero-btn-secondary {
   border-radius: 0.75rem;
   padding: 0.75rem 1.25rem;
   text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.hero-btn-secondary:hover {
+  border-color: var(--violet);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(155, 140, 255, .18), 0 4px 14px rgba(0, 0, 0, .25);
+}
+
+.hero-btn-secondary span {
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
 }
 
 .hero-meta {
@@ -1161,6 +1211,18 @@ h1+p {
 
 .elsewhere a:hover {
   text-decoration: underline;
+}
+
+/* Add this new block to fix the icon alignment */
+.elsewhere .icon,
+.elsewhere .ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  /* This gives every icon a consistent width */
+  flex-shrink: 0;
+  /* Prevents the icon from shrinking */
 }
 
 .built-with {
