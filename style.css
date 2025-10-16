@@ -297,7 +297,7 @@ header .logo-accent {
 
 .freelance-badge-link {
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
 }
 
 .pulse-container {
@@ -408,6 +408,9 @@ h1+p {
 }
 
 .hero-btn-secondary span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   background: linear-gradient(90deg, var(--violet), var(--cyan));
   -webkit-background-clip: text;
   background-clip: text;
