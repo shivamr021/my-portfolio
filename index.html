@@ -1,315 +1,593 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/Contorted lines.png">
-
-    <title>Home - Shivam Rathod</title>
-
-    <style>
-        /* Home page specific styles */
-        .intro-section {
-            min-height: 85vh;
-            padding: 2rem 0;
-        }
-
-        .profile-image {
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            max-width: 420px;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            margin: 0 auto;
-            border-radius: 50%;
-            /* perfect circle */
-        }
-
-        .profile-image:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-        }
-
-        .main-title {
-            font-size: 4.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, #ffcc70, #ff7eb3);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .sub-title {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #e0e0e0;
-        }
-
-        .hero-section-p {
-            font-size: clamp(1.25rem, 4.5vw, 2.5rem);
-            font-weight: 500;
-            line-height: 1.2;
-            min-height: 1.2em; /* prevent layout jump during typing */
-            white-space: nowrap; /* keep the whole line on one row */
-            overflow: hidden;   /* avoid horizontal scroll on very small screens */
-        }
-
-        /* Keep typed content to one line; avoid wrap and jitter */
-        #text { display: inline-block; white-space: nowrap; max-width: 100%; }
-        .typed-cursor { display: inline-block; vertical-align: -0.15em; }
-
-        .wave {
-            animation: wave 2.5s infinite;
-            display: inline-block;
-            transform-origin: 70% 70%;
-        }
-
-        @keyframes wave {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            10% {
-                transform: rotate(14deg);
-            }
-
-            20% {
-                transform: rotate(-8deg);
-            }
-
-            30% {
-                transform: rotate(14deg);
-            }
-
-            40% {
-                transform: rotate(-4deg);
-            }
-
-            50% {
-                transform: rotate(10deg);
-            }
-
-            60% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(0deg);
-            }
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        /* Prevent flex overflow causing typed line wrap */
-        .intro-text { min-width: 0; }
-
-        .social-icon {
-            color: white;
-            font-size: 1.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: #ff7eb3;
-            transform: translateY(-3px);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .cta-btn {
-            padding: 0.8rem 2rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .primary-btn {
-            background: linear-gradient(45deg, #ffcc70, #ff7eb3);
-            color: #1a1a1a;
-        }
-
-        .secondary-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid #ff7eb3;
-            color: white;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .intro-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
-            }
-
-            .intro-image {
-                margin-bottom: 8px;
-            }
-
-            .intro-text {
-                margin-top: 8px;
-            }
-
-            .main-title {
-                font-size: 2.5rem;
-            }
-
-            .sub-title {
-                font-size: 1.8rem;
-            }
-
-            .hero-section-p { min-height: 1.2em; }
-        }
-
-        /* Add flex container styles */
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container-fluid {
-            flex: 1;
-            margin-bottom: 30px;
-            /* Standard gap before footer */
-        }
-
-        /* Global footer */
-        .site-footer {
-            margin-top: auto;
-            background: rgba(20, 20, 40, 0.9);
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            color: #e0e0e0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 16px;
-            width: 100%;
-        }
-        .site-footer .footer-left { font-size: 0.95rem; }
-        .site-footer .footer-icons a { display: inline-block; margin-left: 10px; }
-        .site-footer .footer-icons img { height: 22px; width: auto; transition: transform 0.2s ease, opacity 0.2s ease; }
-        .site-footer .footer-icons a:hover img { transform: translateY(-2px) scale(1.05); opacity: 0.9; }
-        @media (max-width: 576px) { .site-footer { flex-direction: column; gap: 10px; } .site-footer .footer-icons { display: flex; gap: 12px; flex-wrap: wrap; } }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shivam Rathod — Backend & AI/ML Developer</title>
+  <meta name="description"
+    content="Shivam Rathod — Backend & AI/ML Developer. I design and build reliable products with clear UX and solid engineering." />
+  <meta name="theme-color" content="#0b0f1c" />
+  <link rel="icon" type="image/png" href="assets/images/Contorted lines.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/images/fool.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                Shivam Rathod
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link" href="index.html">Home</a>
-                    <a class="nav-item nav-link" href="about.html">About</a>
-                    <a class="nav-item nav-link" href="skills.html">Skills</a>
-                    <a class="nav-item nav-link" href="projects.html">Projects</a>
-                    <a class="nav-item nav-link" href="certifications.html">Certifications</a>
-                    <a class="nav-item nav-link" href="contact.html">Contact</a>
+  <div aria-hidden="true" class="bg-container">
+    <div class="bg-noise"></div>
+    <div class="glow-top-left"></div>
+    <div class="glow-middle-right"></div>
+  </div>
 
-                </div>
-            </div>
+  <header>
+    <div class="container">
+      <nav class="glass">
+        <a href="#home" class="logo">Shivam<span class="logo-accent"> Rathod</span></a>
+        <div class="nav-links">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#experience">Experience</a>
+          <a class="nav-link" href="#certs">Certifications</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" target="_blank" rel="noopener" href="assets/resume/ShivamRathod_Resume.pdf">Resume</a>
         </div>
-    </nav>
-
-    <div class="container-fluid py-5">
-        <div class="intro-section d-flex align-items-center">
-            <div class="intro-image col-md-6">
-                <img src="assets/images/portfolio_profile.png" alt="Shivam Rathod"
-                    class="img-fluid shadow-lg profile-image">
-            </div>
-            <div class="intro-text col-md-6 text-start text-light">
-                <h1 class="main-title">Hello There! <span class="wave">👋</span></h1>
-                <h2 class="sub-title">I'm Shivam Rathod,</h2>
-                <p class="hero-section-p lead">I'm <span id="text"></span><span class="typed-cursor"
-                        aria-hidden="true">|</span></p>
-                <div class="social-links mt-4">
-                    <a href="https://github.com/shivamr021" target="_blank" class="social-icon"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/shivamrathod021/" target="_blank" class="social-icon"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="mailto:shivamrathod145@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                </div>
-                <div class="cta-buttons mt-5">
-                    <a href="about.html" class="cta-btn primary-btn">About Me</a>
-                    <a href="projects.html" class="cta-btn secondary-btn">View Projects</a>
-                </div>
-            </div>
+        <div class="header-actions">
+          <a href="#contact" class="hire-me-btn">Hire me</a>
         </div>
+      </nav>
     </div>
+  </header>
 
-    <!-- Global Footer -->
-    <footer class="site-footer">
-        <div class="footer-left">© 2025 Shivam Rathod. All rights reserved.</div>
-        <div class="footer-icons">
-            <a href="https://www.linkedin.com/in/shivamrathod021/" target="_blank" rel="noopener"><img src="assets/images/linkedIn.png" alt="LinkedIn"></a>
-            <a href="https://github.com/shivamr021" target="_blank" rel="noopener"><img src="assets/images/github-mark.png" alt="GitHub"></a>
-            <a href="mailto:shivamrathod145@gmail.com" target="_blank" rel="noopener"><img src="assets/images/gmail.png" alt="Email"></a>
-            <a href="https://x.com/shivamr017" target="_blank" rel="noopener"><img src="assets/images/x.png" alt="X"></a>
-            <a href="https://medium.com/@shivamr021" target="_blank" rel="noopener"><img src="assets/images/medium.png" alt="Medium"></a>
+  <section id="home">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="freelance-badge glass">
+          <span class="pulse-container">
+            <span class="pulse-ring"></span>
+            <span class="pulse-dot"></span>
+          </span>
+          Available for freelance
         </div>
-    </footer>
+        <h1>
+          I craft reliable products with clarity and purpose.
+        </h1>
+        <p>
+          Backend & AI/ML — Focused on reliable systems and clean DX.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="hero-btn-primary">View Projects</a>
+          <a href="#skills" class="hero-btn-secondary glass">Explore Skills</a>
+          <a href="mailto:shivamrathod145@gmail.com" class="hero-btn-secondary glass">shivamrathod145@gmail.com</a>
+        </div>
+        <div class="hero-meta">
+          <span>📍 Indore, India</span>
+          <span>🛠 Python • Django • ML</span>
+          <span>⚡ Ships quickly</span>
+        </div>
+      </div>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+      <div class="profile-card-container" data-tilt>
+        <div class="glass profile-card">
+          <div class="profile-header">
+            <div class="profile-image-wrapper">
+              <div class="profile-image-glow"></div>
+              <div class="profile-image">
+                <img src="assets/images/portfolio_profile.png" alt="Shivam Rathod" />
+              </div>
+            </div>
+            <div>
+              <p class="profile-name">Shivam Rathod</p>
+              <p class="profile-title">Backend & AI/ML Developer • Builder</p>
+            </div>
+          </div>
+          <div class="profile-stats">
+            <div class="stat-item glass">
+              <div class="stat-number">12+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item glass">
+              <div class="stat-number">7</div>
+              <div class="stat-label">Teams worked with</div>
+            </div>
+            <div class="stat-item glass">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">On-time</div>
+            </div>
+          </div>
+          <div class="profile-bio">Builder who ships. Thinks in systems. Codes with intent.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        var typed = new Typed('#text', {
-            strings: [
-                'an AI Agent &amp; ML Developer',
-                'a Full-Stack AI Engineer',
-                'a Data-Driven Problem Solver',
-                'a Builder of Intelligent Systems',
-                'a Creative Technologist'
-            ],
-            typeSpeed: 40,
-            backSpeed: 40,
-            backDelay: 1500,
-            loop: true,
-            smartBackspace: true
-        }); 
-    </script>
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div class="about-main glass">
+          <p>
+            I build practical software—predictable architecture, clean APIs, and measurable performance. Core strengths:
+            Python/Django for dependable backends, Pandas for data work, and applied AI/ML for real products
+            (classification, assistants, automation). Recent work includes local LLM agents, a bilingual farming
+            assistant, and foundations for e-commerce in Django.
+          </p>
+          <ul class="about-list">
+            <li>✅ Clear, documented APIs</li>
+            <li>✅ Testing and sensible telemetry</li>
+            <li>✅ Fast prototypes → production</li>
+            <li>✅ Secure auth & REST</li>
+          </ul>
+        </div>
+        <div class="quick-info glass">
+          <h3>Quick Info</h3>
+          <dl>
+            <div>
+              <dt>Role</dt>
+              <dd>Backend & AI/ML Developer</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>AI apps • Web backends</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>Python • Django • JS</dd>
+            </div>
+            <div>
+              <dt>Freelance</dt>
+              <dd>Open</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="skills-header">
+        <div>
+          <h2 class="section-title">Skills</h2>
+          <p>
+            Interactive map by tiers: <b>Core</b>, <b>Builder</b>, <b>AI</b>. Hover to attract; click to pin.
+          </p>
+        </div>
+        <div class="skills-toggle">
+          <button class="chip is-active" data-skillview="constellation">Constellation</button>
+          <button class="chip" data-skillview="grid">Grid</button>
+        </div>
+      </div>
+
+      <div id="skillsConstellation" class="skills-constellation-grid">
+        <div class="constellation-wrapper glass">
+          <canvas id="constellation" aria-label="Interactive skills constellation"></canvas>
+          <div id="legend" class="legend"></div>
+          <div class="constellation-tip">Tip: hover/tap near nodes; click a node to pin.
+          </div>
+        </div>
+
+        <div class="skills-highlights">
+          <div class="glass skill-card">
+            <div class="skill-card-header">
+              <h4>Backend & Data</h4>
+              <div class="skill-percent"><span class="count" data-to="93">0</span>%</div>
+            </div>
+            <p>Python, Django, Pandas, REST, auth.</p>
+            <div class="skill-tags"><span class="chip">Python</span><span class="chip">Django</span><span
+                class="chip">Pandas</span></div>
+          </div>
+          <div class="glass skill-card">
+            <div class="skill-card-header">
+              <h4>Frontend & UI</h4>
+              <div class="skill-percent"><span class="count" data-to="82">0</span>%</div>
+            </div>
+            <p>Streamlit & Bootstrap for clean, usable UIs when needed.</p>
+            <div class="skill-tags"><span class="chip">JavaScript</span><span class="chip">Streamlit</span><span
+                class="chip">Bootstrap</span></div>
+          </div>
+          <div class="glass skill-card">
+            <div class="skill-card-header">
+              <h4>Agents & Local LLM</h4>
+              <div class="skill-percent"><span class="count" data-to="86">0</span>%</div>
+            </div>
+            <p>LangChain, Ollama, RAG, integrations.</p>
+            <div class="skill-tags"><span class="chip">LangChain</span><span class="chip">Ollama</span><span
+                class="chip">RAG</span></div>
+          </div>
+          <div class="glass skill-card">
+            <div class="skill-card-header">
+              <h4>ML & TensorFlow</h4>
+              <div class="skill-percent"><span class="count" data-to="78">0</span>%</div>
+            </div>
+            <p>CNNs (EfficientNetB0), Keras experiments, evaluation.</p>
+            <div class="skill-tags"><span class="chip">TensorFlow</span><span class="chip">Keras</span><span
+                class="chip">Metrics</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="skillsGrid" class="skills-grid-fallback">
+        <div class="glass skill-grid-item">
+          <div>
+            <div class="skill-name">Python</div>
+            <div class="skill-desc">Backend & data</div>
+          </div>
+          <div class="skill-grid-percent">96%</div>
+        </div>
+        <div class="glass skill-grid-item">
+          <div>
+            <div class="skill-name">Django</div>
+            <div class="skill-desc">Auth • REST</div>
+          </div>
+          <div class="skill-grid-percent">92%</div>
+        </div>
+        <div class="glass skill-grid-item">
+          <div>
+            <div class="skill-name">Pandas</div>
+            <div class="skill-desc">Wrangling</div>
+          </div>
+          <div class="skill-grid-percent">88%</div>
+        </div>
+        <div class="glass skill-grid-item">
+          <div>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-desc">UI glue</div>
+          </div>
+          <div class="skill-grid-percent">80%</div>
+        </div>
+        <div class="glass skill-grid-item">
+          <div>
+            <div class="skill-name">Streamlit</div>
+            <div class="skill-desc">Rapid UI</div>
+          </div>
+          <div class="skill-grid-percent">86%</div>
+        </div>
+        <div class="glass skill-grid-item">
+          <div>
+            <div class="skill-name">Bootstrap</div>
+            <div class="skill-desc">Responsive</div>
+          </div>
+          <div class="skill-grid-percent">78%</div>
+        </div>
+        <div class="glass skill-grid-item">
+          <div>
+            <div class="skill-name">LangChain</div>
+            <div class="skill-desc">Agents</div>
+          </div>
+          <div class="skill-grid-percent">84%</div>
+        </div>
+        <div class="glass skill-grid-item">
+          <div>
+            <div class="skill-name">Ollama</div>
+            <div class="skill-desc">Local LLMs</div>
+          </div>
+          <div class="skill-grid-percent">82%</div>
+        </div>
+        <div class="glass skill-grid-item">
+          <div>
+            <div class="skill-name">TensorFlow</div>
+            <div class="skill-desc">CNNs</div>
+          </div>
+          <div class="skill-grid-percent">76%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="projects-header">
+        <div>
+          <h2 class="section-title">Projects</h2>
+          <p>Selected work. Filter by focus.</p>
+        </div>
+        <div class="project-filters">
+          <button class="filter-chip glass" data-filter="all">All</button>
+          <button class="filter-chip glass" data-filter="ai">AI/Agents</button>
+          <button class="filter-chip glass" data-filter="backend">Backend</button>
+          <button class="filter-chip glass" data-filter="web">Web/UI</button>
+        </div>
+      </div>
+
+      <div id="projectGrid" class="project-grid">
+        <article class="project pro-card" data-tags="ai web">
+          <div class="pro-media">
+            <img class="pro-img" src="assets/projects/KrishiMitra-AI.png" alt="KrishiMitra AI preview" loading="lazy">
+            <span class="pro-shine"></span>
+          </div>
+          <div class="pro-body">
+            <div class="pro-body-main">
+              <h3 class="pro-title">KrishiMitra AI</h3>
+              <p class="pro-desc">Bilingual farming assistant with disease detector, weather & market agents.</p>
+            </div>
+            <div class="pro-body-footer">
+              <div class="pro-actions">
+                <a href="https://krishimitra-ai.streamlit.app/" target="_blank" class="btn-solid"
+                  aria-label="Live demo">
+                  <span class="btn-ico">↗</span> Live
+                </a>
+                <a href="https://github.com/shivamr021/KrishiMitra-AI" target="_blank" class="btn-ghost"
+                  aria-label="Source code">
+                  <svg viewBox="0 0 24 24" class="ico">
+                    <path
+                      d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.17-3.37-1.17-.46-1.15-1.12-1.46-1.12-1.46-.92-.64.07-.63.07-.63 1.02.07 1.56 1.05 1.56 1.05.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 6.8c.86 0 1.73.12 2.54.35 1.92-1.29 2.77-1.02 2.77-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.6 1.03 2.68 0 3.85-2.35 4.7-4.58 4.95.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+                  </svg>
+                  Code
+                </a>
+              </div>
+              <div class="pro-tags"><span class="pill">Python</span><span class="pill">EfficientNetB0</span><span
+                  class="pill">Streamlit</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project pro-card" data-tags="ai backend">
+          <div class="pro-media">
+            <img class="pro-img" src="assets/projects/AI_Agent_Suite.png" alt="AI Agent Suite preview" loading="lazy">
+            <span class="pro-shine"></span>
+          </div>
+          <div class="pro-body">
+            <div class="pro-body-main">
+              <h3 class="pro-title">AI Agent Suite</h3>
+              <p class="pro-desc">Local LLM agents with scraping, voice commands & RAG automation.</p>
+            </div>
+            <div class="pro-body-footer">
+              <div class="pro-actions">
+                <a href="https://github.com/shivamr021/ollama-langchain-agents" target="_blank" class="btn-ghost"
+                  aria-label="GitHub repo">
+                  <svg viewBox="0 0 24 24" class="ico">
+                    <path
+                      d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.17-3.37-1.17-.46-1.15-1.12-1.46-1.12-1.46-.92-.64.07-.63.07-.63 1.02.07 1.56 1.05 1.56 1.05.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 6.8c.86 0 1.73.12 2.54.35 1.92-1.29 2.77-1.02 2.77-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.6 1.03 2.68 0 3.85-2.35 4.7-4.58 4.95.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+                  </svg>
+                  Code
+                </a>
+              </div>
+              <div class="pro-tags"><span class="pill">LangChain</span><span class="pill">Ollama</span><span
+                  class="pill">RAG</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project pro-card" data-tags="ai backend">
+          <div class="pro-media">
+            <img class="pro-img" src="assets/projects/ExoQuest.png" alt="ExoQuest preview" loading="lazy">
+            <span class="pro-shine"></span>
+          </div>
+          <div class="pro-body">
+            <div class="pro-body-main">
+              <h3 class="pro-title">ExoQuest</h3>
+              <p class="pro-desc">NASA Space Apps Challenge 2025 — backend & dashboard for exoplanet detection model
+                (CNN/Transformer) with ~90% accuracy.</p>
+            </div>
+            <div class="pro-body-footer">
+              <div class="pro-actions">
+                <a href="https://exo-quest-stellar.vercel.app/" target="_blank" class="btn-solid"
+                  aria-label="Live demo">
+                  <span class="btn-ico">↗</span> Live
+                </a>
+                <a href="https://github.com/shivamr021/ExoQuest" target="_blank" class="btn-ghost"
+                  aria-label="Source code">
+                  <svg viewBox="0 0 24 24" class="ico">
+                    <path
+                      d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.17-3.37-1.17-.46-1.15-1.12-1.46-1.12-1.46-.92-.64.07-.63.07-.63 1.02.07 1.56 1.05 1.56 1.05.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 6.8c.86 0 1.73.12 2.54.35 1.92-1.29 2.77-1.02 2.77-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.6 1.03 2.68 0 3.85-2.35 4.7-4.58 4.95.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+                  </svg>
+                  Code
+                </a>
+              </div>
+              <div class="pro-tags"><span class="pill">CNN</span><span class="pill">Transformer</span><span
+                  class="pill">Flask</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project pro-card" data-tags="backend ai">
+          <div class="pro-media">
+            <img class="pro-img" src="assets/projects/CampusCompass.png" alt="Campus Compass preview" loading="lazy">
+            <span class="pro-shine"></span>
+          </div>
+          <div class="pro-body">
+            <div class="pro-body-main">
+              <h3 class="pro-title">Campus Compass</h3>
+              <p class="pro-desc">Smart India Hackathon 2025 project with FastAPI backend, Dialogflow routing, and
+                Supabase PostgreSQL — fully cloud-deployed.</p>
+            </div>
+            <div class="pro-body-footer">
+              <div class="pro-actions">
+                <a href="https://campus-compass-nu.vercel.app/" target="_blank" class="btn-solid"
+                  aria-label="Live demo">
+                  <span class="btn-ico">↗</span> Live
+                </a>
+                <a href="https://github.com/shivamr021/campus-compass" target="_blank" class="btn-ghost"
+                  aria-label="Source code">
+                  <svg viewBox="0 0 24 24" class="ico">
+                    <path
+                      d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.17-3.37-1.17-.46-1.15-1.12-1.46-1.12-1.46-.92-.64.07-.63.07-.63 1.02.07 1.56 1.05 1.56 1.05.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 6.8c.86 0 1.73.12 2.54.35 1.92-1.29 2.77-1.02 2.77-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.6 1.03 2.68 0 3.85-2.35 4.7-4.58 4.95.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+                  </svg>
+                  Code
+                </a>
+              </div>
+              <div class="pro-tags"><span class="pill">FastAPI</span><span class="pill">Dialogflow</span><span
+                  class="pill">Supabase</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project pro-card" data-tags="ai backend">
+          <div class="pro-media">
+            <img class="pro-img" src="assets/projects/GhostVault.png" alt="Ghost Vault preview" loading="lazy">
+            <span class="pro-shine"></span>
+          </div>
+          <div class="pro-body">
+            <div class="pro-body-main">
+              <h3 class="pro-title">Ghost Vault</h3>
+              <p class="pro-desc">CyberShield Hackathon 2025 — ML-based APK threat detector with 94% detection accuracy
+                and explainability visualization.</p>
+            </div>
+            <div class="pro-body-footer">
+              <div class="pro-actions">
+                <a href="https://github.com/shivamr021/GhostVault" target="_blank" class="btn-ghost"
+                  aria-label="Source code">
+                  <svg viewBox="0 0 24 24" class="ico">
+                    <path
+                      d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.17-3.37-1.17-.46-1.15-1.12-1.46-1.12-1.46-.92-.64.07-.63.07-.63 1.02.07 1.56 1.05 1.56 1.05.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 6.8c.86 0 1.73.12 2.54.35 1.92-1.29 2.77-1.02 2.77-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.6 1.03 2.68 0 3.85-2.35 4.7-4.58 4.95.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+                  </svg>
+                  Code
+                </a>
+              </div>
+              <div class="pro-tags"><span class="pill">Scikit-learn</span><span class="pill">Androguard</span><span
+                  class="pill">Explainable AI</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project pro-card" data-tags="backend web">
+          <div class="pro-media">
+            <img class="pro-img" src="assets/projects/DjangoCart.png" alt="DjangoCart preview" loading="lazy">
+            <span class="pro-shine"></span>
+          </div>
+          <div class="pro-body">
+            <div class="pro-body-main">
+              <h3 class="pro-title">DjangoCart</h3>
+              <p class="pro-desc">Full-stack e-commerce with auth, secure flows, and responsive design.</p>
+            </div>
+            <div class="pro-body-footer">
+              <div class="pro-actions">
+                <a href="https://djangocart.onrender.com" target="_blank" class="btn-solid" aria-label="Live site">
+                  <span class="btn-ico">↗</span> Live
+                </a>
+                <a href="https://github.com/shivamr021/e-commerce" target="_blank" class="btn-ghost"
+                  aria-label="Source code">
+                  <svg viewBox="0 0 24 24" class="ico">
+                    <path
+                      d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.17-3.37-1.17-.46-1.15-1.12-1.46-1.12-1.46-.92-.64.07-.63.07-.63 1.02.07 1.56 1.05 1.56 1.05.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 6.8c.86 0 1.73.12 2.54.35 1.92-1.29 2.77-1.02 2.77-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.6 1.03 2.68 0 3.85-2.35 4.7-4.58 4.95.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+                  </svg>
+                  Code
+                </a>
+              </div>
+              <div class="pro-tags"><span class="pill">Django</span><span class="pill">MVT</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <ol class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-dot"></div>
+          <time>2025</time>
+          <h3>Backend Developer — FieldLens (Freelance)</h3>
+          <p>FastAPI backend for automated field photo verification with bilingual WhatsApp workflows
+            and MongoDB Atlas.</p>
+          <ul class="experience-list">
+            <li>Designed REST endpoints with JWT auth and rate-limits; integrated with WhatsApp Business API.</li>
+            <li>Built async image processing pipelines; reduced average processing time by ~35%.</li>
+            <li>Set up observability (structured logs & basic metrics) for faster issue triage.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+      <div class="certs-grid">
+        <div class="glass cert-card">
+          <div class="cert-title">AI Essentials</div>
+          <div class="cert-issuer">Google — AI fundamentals & ethics</div>
+        </div>
+        <div class="glass cert-card">
+          <div class="cert-title">Data Analytics with Python</div>
+          <div class="cert-issuer">IBM SkillsBuild — EDA & visualisation</div>
+        </div>
+        <div class="glass cert-card">
+          <div class="cert-title">Cloud & GenAI</div>
+          <div class="cert-issuer">Google — Cloud foundations + GenAI</div>
+        </div>
+        <div class="glass cert-card">
+          <div class="cert-title">Foundations of Cybersecurity</div>
+          <div class="cert-issuer">Google — Risk & threat analysis</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <form class="contact-form glass" id="contactForm">
+          <div class="form-row">
+            <div><label>Name</label><input type="text" name="name" required>
+            </div>
+            <div><label>Email</label><input type="email" name="email" required>
+            </div>
+          </div>
+          <div><label>Message</label><textarea name="message" rows="5" required></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit">Send</button>
+            <span id="formStatus">I usually reply within a day.</span>
+          </div>
+        </form>
+
+        <div class="elsewhere glass">
+          <h3>Elsewhere</h3>
+          <ul>
+            <li><span class="icon">@</span><a href="mailto:shivamrathod145@gmail.com">shivamrathod145@gmail.com</a></li>
+            <li>
+              <svg viewBox="0 0 24 24" class="ico" aria-hidden="true">
+                <path
+                  d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.17-3.37-1.17-.46-1.15-1.12-1.46-1.12-1.46-.92-.64.07-.63.07-.63 1.02.07 1.56 1.05 1.56 1.05.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 6.8c.86 0 1.73.12 2.54.35 1.92-1.29 2.77-1.02 2.77-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.6 1.03 2.68 0 3.85-2.35 4.7-4.58 4.95.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+              </svg>
+              <a href="https://github.com/shivamr021" target="_blank">github.com/shivamr021</a>
+            </li>
+            <li><span class="icon">in</span><a href="https://www.linkedin.com/in/shivamrathod021"
+                target="_blank">linkedin.com/in/shivamrathod021</a></li>
+            <li><span class="icon">M</span><a href="https://medium.com/@shivamr021"
+                target="_blank">medium.com/@shivamr021</a></li>
+            <li><span class="icon">X</span><a href="https://x.com/shivamr017" target="_blank">x.com/shivamr017</a></li>
+            <li><span class="icon">C</span><a href="https://codolio.com/profile/shivamr021/card"
+                target="_blank">codolio.com/profile/shivamr021/card</a></li>
+          </ul>
+          <div class="built-with">Built with ❤️ © <span id="year">2025</span> Shivam Rathod.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© <span id="yearFooter">2025</span> Shivam Rathod. All rights reserved.</p>
+      <div class="footer-icons">
+        <a class="icon-btn" href="https://www.linkedin.com/in/shivamrathod021" target="_blank"
+          aria-label="LinkedIn"><span class="icon">in</span></a>
+        <a class="icon-btn" href="https://github.com/shivamr021" target="_blank" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" class="ico" aria-hidden="true">
+            <path
+              d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.17-3.37-1.17-.46-1.15-1.12-1.46-1.12-1.46-.92-.64.07-.63.07-.63 1.02.07 1.56 1.05 1.56 1.05.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.62 0 0 .85-.27 2.78 1.02A9.7 9.7 0 0 1 12 6.8c.86 0 1.73.12 2.54.35 1.92-1.29 2.77-1.02 2.77-1.02.55 1.36.2 2.37.1 2.62.64.7 1.03 1.6 1.03 2.68 0 3.85-2.35 4.7-4.58 4.95.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+          </svg>
+        </a>
+        <a class="icon-btn" href="mailto:shivamrathod145@gmail.com" aria-label="Email"><span class="icon">@</span></a>
+        <a class="icon-btn" href="https://x.com/shivamr017" target="_blank" aria-label="X / Twitter"><span
+            class="icon">X</span></a>
+        <a class="icon-btn" href="https://medium.com/@shivamr021" target="_blank" aria-label="Medium"><span
+            class="icon">M</span></a>
+        <a class="icon-btn" href="https://codolio.com/profile/shivamr021/card" target="_blank"
+          aria-label="Codolio"><span class="icon">C</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
