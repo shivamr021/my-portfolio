@@ -4,12 +4,12 @@
 
 :root {
   --ink: #0b0f1c;
-  --violet: #9b8cff;
-  --cyan: #00e5ff;
-  --gold: #ffd166;
+  --seer-purple: #8A2BE2;
+  /* A deeper, more mysterious violet */
+  --fool-gold: #DAA520;
+  /* A rich, warm goldenrod */
   --white: #ffffff;
   --gray-300: #d1d5db;
-  /* Approx */
   --gray-text: rgba(255, 255, 255, 0.85);
 }
 
@@ -32,7 +32,7 @@ body {
 }
 
 body::selection {
-  background-color: rgba(155, 140, 255, 0.25);
+  background-color: rgba(138, 43, 226, 0.25);
 }
 
 section {
@@ -82,7 +82,7 @@ section {
   width: 80px;
   height: 3px;
   margin-top: 10px;
-  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  background: linear-gradient(90deg, var(--seer-purple), var(--fool-gold));
   border-radius: 999px;
 }
 
@@ -99,12 +99,12 @@ section {
 }
 
 .chip.is-active {
-  background: var(--violet);
+  background: var(--seer-purple);
   color: var(--white);
+  font-weight: 600;
   border-color: transparent;
 }
 
-/* Find and replace this class */
 .icon-btn {
   width: 34px;
   height: 34px;
@@ -112,45 +112,30 @@ section {
   display: grid;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  /* Made the default border a bit brighter */
   background: transparent;
-  /* Cleaner look */
   color: var(--gray-300);
-  /* High-contrast icon color */
   text-decoration: none;
   transition: all 0.2s ease-in-out;
-  /* Smooth transition for hover effect */
 }
 
-/* This is the new hover effect */
 .icon-btn:hover {
   color: var(--white);
-  border-color: var(--violet);
-  background-color: rgba(155, 140, 255, 0.1);
-  box-shadow: 0 0 15px rgba(155, 140, 255, 0.35);
-  /* This creates the glow */
+  border-color: var(--seer-purple);
+  background-color: rgba(138, 43, 226, 0.1);
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.35);
   transform: translateY(-2px);
-  /* Adds a subtle lift */
 }
 
-/* This rule for .ico ensures the SVG icons correctly use the color we set */
 .ico {
   width: 16px;
   height: 16px;
   fill: currentColor;
-  /* This is the key change */
 }
 
 .icon {
   font-size: 12px;
   line-height: 1;
   font-weight: 700;
-}
-
-.ico {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
 }
 
 /* ======================================== */
@@ -178,8 +163,9 @@ section {
   height: 420px;
   border-radius: 9999px;
   filter: blur(48px);
-  opacity: 0.4;
-  background: radial-gradient(closest-side, rgba(155, 140, 255, 0.267), transparent);
+  opacity: 0.3;
+  /* More subtle opacity */
+  background: radial-gradient(closest-side, rgba(138, 43, 226, 0.25), transparent);
 }
 
 .glow-middle-right {
@@ -190,8 +176,9 @@ section {
   height: 360px;
   border-radius: 9999px;
   filter: blur(48px);
-  opacity: 0.4;
-  background: radial-gradient(closest-side, rgba(0, 229, 255, 0.227), transparent);
+  opacity: 0.3;
+  /* More subtle opacity */
+  background: radial-gradient(closest-side, rgba(218, 165, 32, 0.2), transparent);
 }
 
 /* ======================================== */
@@ -212,6 +199,12 @@ header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: background-color 0.3s ease-in-out;
+}
+
+header.scrolled nav {
+  background-color: rgba(11, 15, 28, 0.7);
+  backdrop-filter: blur(10px);
 }
 
 header .logo {
@@ -223,7 +216,7 @@ header .logo {
 }
 
 header .logo-accent {
-  color: var(--violet);
+  color: var(--seer-purple);
 }
 
 .nav-links {
@@ -248,7 +241,7 @@ header .logo-accent {
 }
 
 .nav-link.active {
-  color: var(--violet);
+  color: var(--seer-purple);
   text-underline-offset: 6px;
   text-decoration: underline;
 }
@@ -261,7 +254,7 @@ header .logo-accent {
 
 .hire-me-btn {
   display: none;
-  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  background: linear-gradient(90deg, var(--seer-purple), var(--fool-gold));
   color: var(--ink);
   font-weight: 600;
   border-radius: 0.75rem;
@@ -272,7 +265,7 @@ header .logo-accent {
 
 .hire-me-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(0, 229, 255, .35);
+  box-shadow: 0 0 25px rgba(218, 165, 32, .35);
 }
 
 @media (min-width: 640px) {
@@ -284,60 +277,6 @@ header .logo-accent {
 /* ======================================== */
 /* Hero                   */
 /* ======================================== */
-
-.freelance-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-}
-
-.freelance-badge-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.pulse-container {
-  position: relative;
-  display: flex;
-  width: 0.5rem;
-  height: 0.5rem;
-}
-
-.pulse-ring {
-  animation: pulseRing 1.5s infinite;
-  position: absolute;
-  display: inline-flex;
-  width: 100%;
-  height: 100%;
-  border-radius: 9999px;
-  background-color: rgba(155, 140, 255, 0.3);
-}
-
-.pulse-dot {
-  position: relative;
-  display: inline-flex;
-  border-radius: 9999px;
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: var(--violet);
-}
-
-@keyframes pulseRing {
-  0% {
-    transform: scale(.8);
-    opacity: .8;
-  }
-
-  80%,
-  100% {
-    transform: scale(1.35);
-    opacity: 0;
-  }
-}
 
 h1 {
   font-weight: 800;
@@ -377,7 +316,7 @@ h1+p {
 }
 
 .hero-btn-primary {
-  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  background: linear-gradient(90deg, var(--seer-purple), var(--fool-gold));
   color: var(--ink);
   font-weight: 600;
   border-radius: 0.75rem;
@@ -389,7 +328,7 @@ h1+p {
 
 .hero-btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 229, 255, .35);
+  box-shadow: 0 10px 30px rgba(218, 165, 32, .35);
 }
 
 .hero-btn-secondary {
@@ -402,16 +341,16 @@ h1+p {
 }
 
 .hero-btn-secondary:hover {
-  border-color: var(--violet);
+  border-color: var(--seer-purple);
   transform: translateY(-3px);
-  box-shadow: 0 10px 40px rgba(155, 140, 255, .18), 0 4px 14px rgba(0, 0, 0, .25);
+  box-shadow: 0 10px 40px rgba(138, 43, 226, .18), 0 4px 14px rgba(0, 0, 0, .25);
 }
 
 .hero-btn-secondary span {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  background: linear-gradient(90deg, var(--seer-purple), var(--fool-gold));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -431,40 +370,11 @@ h1+p {
 .profile-card-container {
   position: relative;
   order: 1;
-  transform-style: preserve-3d;
-  transform: perspective(1000px) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0));
-  transition: transform 0.1s ease-out;
 }
 
 @media (min-width: 1024px) {
   .profile-card-container {
     order: 2;
-  }
-}
-
-.profile-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  margin: -1px;
-  border-radius: inherit;
-  background: linear-gradient(120deg, var(--violet), var(--cyan), var(--violet));
-  background-size: 200% 200%;
-  animation: gradient-spin 5s linear infinite;
-}
-
-@keyframes gradient-spin {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
   }
 }
 
@@ -541,11 +451,9 @@ h1+p {
   position: relative;
   border-radius: 1.5rem;
   padding: 1.75rem;
-  /* bigger card to use available space */
   max-width: 680px;
   margin: auto;
-  border: 1px solid transparent;
-  background-clip: padding-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 768px) {
@@ -570,7 +478,7 @@ h1+p {
   border-radius: 9999px;
   filter: blur(18px);
   opacity: 0.55;
-  background: radial-gradient(closest-side, rgba(155, 140, 255, 0.45), transparent);
+  background: radial-gradient(closest-side, rgba(138, 43, 226, 0.45), transparent);
 }
 
 .profile-image {
@@ -816,7 +724,6 @@ h1+p {
   font-weight: 700;
 }
 
-/* JS controlled visibility */
 .hidden {
   display: none !important;
 }
@@ -885,8 +792,8 @@ h1+p {
 
 .pro-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 40px rgba(155, 140, 255, .18), 0 4px 14px rgba(0, 0, 0, .25);
-  border-color: rgba(155, 140, 255, .35);
+  box-shadow: 0 10px 40px rgba(138, 43, 226, .18), 0 4px 14px rgba(0, 0, 0, .25);
+  border-color: rgba(138, 43, 226, .35);
 }
 
 .pro-media {
@@ -911,7 +818,7 @@ h1+p {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(1200px 300px at -10% -10%, rgba(155, 140, 255, .20), transparent 35%),
+  background: radial-gradient(1200px 300px at -10% -10%, rgba(138, 43, 226, .20), transparent 35%),
     linear-gradient(180deg, rgba(0, 0, 0, .00) 55%, rgba(0, 0, 0, .35));
 }
 
@@ -963,12 +870,12 @@ h1+p {
 
 .btn-solid {
   color: var(--ink);
-  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  background: linear-gradient(90deg, var(--seer-purple), var(--fool-gold));
 }
 
 .btn-solid:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 22px rgba(0, 229, 255, .35);
+  box-shadow: 0 0 22px rgba(218, 165, 32, .35);
 }
 
 .btn-ghost {
@@ -978,8 +885,8 @@ h1+p {
 }
 
 .btn-ghost:hover {
-  border-color: var(--violet);
-  box-shadow: 0 0 18px rgba(155, 140, 255, .28);
+  border-color: var(--seer-purple);
+  box-shadow: 0 0 18px rgba(138, 43, 226, .28);
 }
 
 .btn-ico {
@@ -1022,7 +929,7 @@ h1+p {
   position: absolute;
   width: 0.75rem;
   height: 0.75rem;
-  background-color: var(--violet);
+  background-color: var(--seer-purple);
   border-radius: 9999px;
   left: -0.375rem;
   margin-top: 0.625rem;
@@ -1148,7 +1055,7 @@ h1+p {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--violet);
+  box-shadow: 0 0 0 2px var(--seer-purple);
 }
 
 .form-actions {
@@ -1158,7 +1065,7 @@ h1+p {
 }
 
 .form-actions button {
-  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  background: linear-gradient(90deg, var(--seer-purple), var(--fool-gold));
   color: var(--ink);
   font-weight: 600;
   border: none;
@@ -1170,7 +1077,7 @@ h1+p {
 
 .form-actions button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(0, 229, 255, .35);
+  box-shadow: 0 0 25px rgba(218, 165, 32, .35);
 }
 
 .form-actions button:disabled {
@@ -1178,9 +1085,20 @@ h1+p {
   opacity: 0.7;
 }
 
-.form-actions span {
+.form-status {
   font-size: 0.875rem;
   opacity: 0.7;
+  transition: color 0.3s ease;
+}
+
+.form-status.success {
+  color: #34d399;
+  opacity: 1;
+}
+
+.form-status.error {
+  color: #f87171;
+  opacity: 1;
 }
 
 .elsewhere {
@@ -1216,22 +1134,13 @@ h1+p {
   text-decoration: underline;
 }
 
-/* Add this new block to fix the icon alignment */
 .elsewhere .icon,
 .elsewhere .ico {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 24px;
-  /* This gives every icon a consistent width */
   flex-shrink: 0;
-  /* Prevents the icon from shrinking */
-}
-
-.built-with {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  opacity: 0.7;
 }
 
 /* ======================================== */
@@ -1265,3 +1174,48 @@ footer {
 .footer-icons a:hover {
   text-decoration: none;
 }
+
+/* ======================================== */
+/* Freelance Pulse Animation     */
+/* ======================================== */
+
+.pulse-container-small {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.pulse-dot-small {
+  width: 8px;
+  height: 8px;
+  background-color: #34d399;
+  border-radius: 9999px;
+  position: relative;
+}
+
+.pulse-ring-small {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: rgba(52, 211, 153, 0.3);
+  animation: pulseRingSmall 1.5s infinite;
+}
+
+@keyframes pulseRingSmall {
+
+  0% {
+    transform: scale(.8);
+    opacity: .8;
+  }
+
+  80%,
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+

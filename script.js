@@ -1,10 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ===== Sticky header active-link handling (unchanged) =====
+  // ===== Sticky header handling =====
   const header = document.querySelector('header');
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
   let headerHeight = header.offsetHeight;
 
+  // Add scrolled class to header for styling
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Intersection observer for active nav links
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const link = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
@@ -20,14 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(s => observer.observe(s));
   window.addEventListener('resize', () => { headerHeight = header.offsetHeight; });
 
-  // ===== Footer years (unchanged) =====
-  const y = String(new Date().getFullYear());
-  const yf = document.getElementById('yearFooter');
-  const y1 = document.getElementById('year');
-  if (yf) yf.textContent = y;
-  if (y1) y1.textContent = y;
+  // ===== Footer year =====
+  const currentYear = String(new Date().getFullYear());
+  document.getElementById('yearFooter').textContent = currentYear;
 
-  // ===== Projects filter (unchanged) =====
+  // ===== Projects filter =====
   const chips = document.querySelectorAll('.filter-chip');
   const cards = document.querySelectorAll('.project');
   chips.forEach(chip => chip.addEventListener('click', () => {
@@ -42,8 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
   document.querySelector('.filter-chip[data-filter="all"]')?.click();
 
-  // ===== Mailto fallback (unchanged) =====
-  // ===== Contact form submission with Resend =====
+  // ===== Contact form submission =====
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -54,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = form.querySelector('button[type="submit"]');
 
       statusEl.textContent = 'Sending…';
+      statusEl.className = 'form-status'; // Reset classes
       submitBtn.disabled = true;
 
       try {
@@ -76,35 +83,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         await response.json();
         statusEl.textContent = 'Message sent successfully!';
+        statusEl.classList.add('success');
         form.reset();
       } catch (error) {
         console.error('Failed to send email:', error);
         statusEl.textContent = 'Something went wrong. Please try again.';
+        statusEl.classList.add('error');
       } finally {
         submitBtn.disabled = false;
+        setTimeout(() => {
+          statusEl.textContent = 'I usually reply within a day.';
+          statusEl.className = 'form-status';
+        }, 5000);
       }
     });
   }
-  // ===== Profile 3D tilt (unchanged) =====
-  const tiltElement = document.querySelector('[data-tilt]');
-  if (tiltElement) {
-    const maxTilt = 10;
-    tiltElement.addEventListener('mousemove', (e) => {
-      const { left, top, width, height } = tiltElement.getBoundingClientRect();
-      const x = e.clientX - left;
-      const y = e.clientY - top;
-      const rotateX = maxTilt * ((y / height) - 0.5) * -2;
-      const rotateY = maxTilt * ((x / width) - 0.5) * 2;
-      tiltElement.style.setProperty('--rotateX', `${rotateX}deg`);
-      tiltElement.style.setProperty('--rotateY', `${rotateY}deg`);
-    });
-    tiltElement.addEventListener('mouseleave', () => {
-      tiltElement.style.setProperty('--rotateX', '0deg');
-      tiltElement.style.setProperty('--rotateY', '0deg');
-    });
-  }
 
-  // ===== Animated counters (unchanged) =====
+  // ===== Animated counters =====
   (() => {
     const counters = document.querySelectorAll('.count');
     if (!counters.length) return;
@@ -126,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(c => obs.observe(c));
   })();
 
-  // ===== Skills: Constellation <-> Grid toggle (enhanced) =====
+  // ===== Skills: Constellation <-> Grid toggle =====
   (() => {
     const btns = document.querySelectorAll('[data-skillview]');
     const constBox = document.getElementById('skillsConstellation');
@@ -139,15 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
       grid.classList.toggle('hidden', isConst);
       localStorage.setItem('skills-view', mode);
 
-      // 🔔 notify constellation module so it can resize/reflow when shown
       document.dispatchEvent(new CustomEvent('skillsviewchange', { detail: { mode } }));
     }
 
-    setView(localStorage.getItem('skills-view') || 'constellation');
+    setView(localStorage.getItem('skills-view') || 'grid'); // Default to grid view
     btns.forEach(b => b.addEventListener('click', () => setView(b.dataset.skillview)));
   })();
 
-  // ===== Constellation Canvas (fixed sizing & visibility) =====
+  // ===== Constellation Canvas =====
   (function () {
     const cvs = document.getElementById('constellation');
     if (!cvs) return;
@@ -178,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function sizeCanvas() {
-      // If hidden (display:none), skip sizing to avoid 0x0 rects
       const r = wrapper.getBoundingClientRect();
       if (r.width === 0 || r.height === 0) return;
 
@@ -267,17 +260,16 @@ document.addEventListener('DOMContentLoaded', () => {
           const MAX = 160;
           if (d < MAX) {
             const o = (1 - d / MAX) * ((state.focus === i || state.focus === j) ? 0.9 : 0.55);
-            ctx.strokeStyle = `rgba(155,140,255,${o})`;
+            ctx.strokeStyle = `rgba(169, 156, 255,${o})`;
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
         }
       }
 
-      // Node glow
       state.pts.forEach((p, idx) => {
         const rad = 4 + p.n.lvl;
-        const fill = (idx === state.focus) ? '#00e5ff' : (p.n.tier === 'ai' ? '#ffd166' : '#9b8cff');
+        const fill = (idx === state.focus) ? '#00e5ff' : (p.n.tier === 'ai' ? '#ffd166' : '#A99CFF');
         ctx.shadowColor = fill; ctx.shadowBlur = 12;
         ctx.beginPath(); ctx.arc(p.x, p.y, rad, 0, Math.PI * 2);
         ctx.fillStyle = fill; ctx.fill();
@@ -293,7 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (shouldReinit) initPoints();
     }
 
-    // Mouse / touch
     function setMouse(e) {
       const rect = cvs.getBoundingClientRect();
       const clientX = e.clientX ?? (e.touches && e.touches[0].clientX);
@@ -309,30 +300,26 @@ document.addEventListener('DOMContentLoaded', () => {
     cvs.addEventListener('touchmove', setMouse, { passive: true });
     cvs.addEventListener('touchend', () => state.mouse.active = false);
 
-    // Observe wrapper size changes (works even after being un-hidden)
     const ro = new ResizeObserver(() => {
       const wasW = state.w, wasH = state.h;
       refresh(false);
-      // Re-init points if the size changed a lot (layout shift)
       if (Math.abs(state.w - wasW) > 10 || Math.abs(state.h - wasH) > 10) {
         initPoints();
       }
     });
     if (wrapper) ro.observe(wrapper);
 
-    // Reflow when user switches back to "Constellation"
     document.addEventListener('skillsviewchange', (e) => {
       if (e.detail?.mode === 'constellation') {
-        // Give browser a tick to apply display change, then size & re-init
         requestAnimationFrame(() => {
           refresh(true);
         });
       }
     });
 
-    // First paint
     refresh(true);
     draw();
     window.addEventListener('resize', () => refresh(false));
   })();
 });
+
